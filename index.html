@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +6,10 @@
   <title>AE 403W — Wing in Ground Effect Vehicle</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #1a1a1a; color: #f0f0f0; }
+    body { font-family: Arial, sans-serif; background: #0d0d0d; color: #f0f0f0; }
 
     header {
-      background: #FF9900;
+      background: #CC0033;
       color: white;
       padding: 40px 20px;
       text-align: center;
@@ -19,15 +18,16 @@
     header p  { font-size: 1.2em; opacity: 0.9; }
 
     nav {
-      background: #222;
+      background: #000;
       display: flex;
       justify-content: center;
       gap: 30px;
       padding: 14px;
       flex-wrap: wrap;
+      border-bottom: 2px solid #CC0033;
     }
-    nav a { color: #FF9900; text-decoration: none; font-weight: bold; font-size: 1em; }
-    nav a:hover { text-decoration: underline; }
+    nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1em; letter-spacing: 0.05em; }
+    nav a:hover { color: #CC0033; text-decoration: none; }
 
     section {
       max-width: 900px;
@@ -36,8 +36,8 @@
     }
     section h2 {
       font-size: 1.8em;
-      color: #FF9900;
-      border-bottom: 2px solid #FF9900;
+      color: #CC0033;
+      border-bottom: 2px solid #CC0033;
       padding-bottom: 8px;
       margin-bottom: 20px;
     }
@@ -50,15 +50,15 @@
       margin-bottom: 30px;
     }
     .stat-box {
-      background: #2a2a2a;
-      border: 1px solid #FF9900;
+      background: #1a1a1a;
+      border: 1px solid #CC0033;
       border-radius: 8px;
       padding: 20px 30px;
       text-align: center;
       flex: 1;
       min-width: 140px;
     }
-    .stat-box .number { font-size: 2em; color: #FF9900; font-weight: bold; }
+    .stat-box .number { font-size: 2em; color: #CC0033; font-weight: bold; }
     .stat-box .label  { font-size: 0.85em; color: #aaa; margin-top: 4px; }
 
     .team-grid {
@@ -67,7 +67,7 @@
       flex-wrap: wrap;
     }
     .team-member {
-      background: #2a2a2a;
+      background: #1a1a1a;
       border-radius: 8px;
       padding: 20px;
       flex: 1;
@@ -80,23 +80,23 @@
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
-      border: 3px solid #FF9900;
+      border: 3px solid #CC0033;
       margin-bottom: 12px;
       display: block;
       margin-left: auto;
       margin-right: auto;
     }
-    .team-member .name  { font-weight: bold; font-size: 1.1em; color: #FF9900; }
+    .team-member .name  { font-weight: bold; font-size: 1.1em; color: #fff; }
     .team-member .role  { font-size: 0.85em; color: #aaa; margin-top: 4px; }
 
     .update-card {
-      background: #2a2a2a;
-      border-left: 4px solid #FF9900;
+      background: #1a1a1a;
+      border-left: 4px solid #CC0033;
       border-radius: 4px;
       padding: 16px 20px;
       margin-bottom: 16px;
     }
-    .update-card .date  { font-size: 0.8em; color: #FF9900; margin-bottom: 6px; }
+    .update-card .date  { font-size: 0.8em; color: #CC0033; margin-bottom: 6px; font-weight: bold; }
     .update-card h3     { font-size: 1.1em; margin-bottom: 8px; }
     .update-card p      { margin: 0 0 12px 0; font-size: 0.95em; }
 
@@ -126,20 +126,37 @@
       border: 0;
     }
 
+    /* 3D model viewer */
+    .model-wrap {
+      width: 100%;
+      height: 480px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #111;
+      border: 2px solid #CC0033;
+      margin-bottom: 12px;
+    }
+    .model-wrap model-viewer {
+      width: 100%;
+      height: 100%;
+      --poster-color: #111;
+    }
+
     .media-label {
-      color: #FF9900;
+      color: #CC0033;
       font-weight: bold;
       font-size: 1em;
       margin: 24px 0 10px 0;
     }
 
     footer {
-      background: #111;
+      background: #000;
       text-align: center;
       padding: 24px;
       color: #555;
       font-size: 0.85em;
       margin-top: 60px;
+      border-top: 2px solid #CC0033;
     }
   </style>
 </head>
@@ -153,6 +170,7 @@
 <nav>
   <a href="#about">About</a>
   <a href="#specs">Design Specs</a>
+  <a href="#model">3D Model</a>
   <a href="#progress">Build Log</a>
   <a href="#team">Team</a>
   <a href="#media">Media</a>
@@ -212,6 +230,40 @@
   <p><strong>Flight Controller:</strong> Pixhawk 6C (PX4 / ArduPilot)</p>
   <p><strong>Rangefinder:</strong> Radar altimeter (water-capable, for ride height measurement)</p>
   <p><strong>Structure:</strong> 3D printed ASA + ABS over carbon fiber spar skeleton</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ 3D MODEL -->
+<section id="model">
+  <h2>Interactive 3D Model</h2>
+  <p>Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-click to pan</p>
+
+  <!-- OPTION A: model-viewer (recommended — uncomment and set src after uploading .glb) -->
+  <!--
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <div class="model-wrap">
+    <model-viewer
+      src="wig_vehicle.glb"
+      alt="WIG Vehicle 3D Model"
+      camera-controls
+      auto-rotate
+      shadow-intensity="1"
+      environment-image="neutral">
+    </model-viewer>
+  </div>
+  -->
+
+  <!-- OPTION B: Sketchfab embed (easiest — replace SKETCHFAB_MODEL_ID with your ID) -->
+  <!--
+  <div class="model-wrap">
+    <iframe
+      src="https://sketchfab.com/models/SKETCHFAB_MODEL_ID/embed?autostart=1&ui_theme=dark"
+      allow="autoplay; fullscreen; xr-spatial-tracking"
+      allowfullscreen>
+    </iframe>
+  </div>
+  -->
+
+  <p style="color:#888; font-style:italic;">3D model coming soon — check back as the build progresses.</p>
 </section>
 
 <!-- ═══════════════════════════════════════════ BUILD LOG -->
