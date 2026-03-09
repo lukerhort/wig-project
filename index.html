@@ -653,6 +653,13 @@
       display: block;
     }
 
+    /* Keep Build Log images smaller than full card width */
+    #progress .photo-grid img {
+      width: min(100%, 340px);
+      height: auto;
+      margin: 0 auto;
+    }
+
     .photo-grid img:hover {
       transform: translateY(-2px);
       border-color: var(--accent);
@@ -734,15 +741,15 @@
 </head>
 <body>
 
-<!-- ═══ HEADER ════════════════════════════════════════════════════ -->
+<!-- --- HEADER ---------------------------------------------------- -->
 <header>
   <h1>Wing in Ground Effect Vehicle</h1>
   <p>AE 403W Senior Design Project &nbsp;·&nbsp; San Diego State University &nbsp;·&nbsp; Spring 2026</p>
 </header>
 
-<!-- ═══ COUNTDOWN ═════════════════════════════════════════════════ -->
+<!-- --- COUNTDOWN ------------------------------------------------- -->
 <div class="countdown-strip">
-  <div class="strip-label">🚀 First Flight Target — April 11, 2026</div>
+  <div class="strip-label">✈️ First Flight Target — April 11, 2026</div>
   <div class="countdown-units">
     <div class="countdown-unit">
       <div class="num" id="cd-days">--</div>
@@ -766,7 +773,7 @@
   </div>
 </div>
 
-<!-- ═══ NAV ═══════════════════════════════════════════════════════ -->
+<!-- --- NAV ------------------------------------------------------- -->
 <nav>
   <a href="#about">About</a>
   <a href="#specs">Specs</a>
@@ -778,7 +785,7 @@
   <a href="#media">Media</a>
 </nav>
 
-<!-- ═══ ABOUT ═════════════════════════════════════════════════════ -->
+<!-- --- ABOUT ----------------------------------------------------- -->
 <section id="about">
   <h2 class="fade-up">About the Project</h2>
   <p class="fade-up delay-1">
@@ -818,7 +825,7 @@
   </div>
 </section>
 
-<!-- ═══ SPECS ══════════════════════════════════════════════════════ -->
+<!-- --- SPECS ------------------------------------------------------ -->
 <section id="specs">
   <h2 class="fade-up">Design Specifications</h2>
   <p class="fade-up delay-1"><strong>Airfoil:</strong> FX 63-137 — high-lift, low-speed, proven in ground effect vehicle designs</p>
@@ -833,7 +840,7 @@
   <p class="fade-up delay-4"><strong>Servos:</strong> 5× Hosyond DS3225 25kg high-torque metal gear</p>
 </section>
 
-<!-- ═══ TIMELINE ═══════════════════════════════════════════════════ -->
+<!-- --- TIMELINE --------------------------------------------------- -->
 <div class="timeline-section" id="timeline">
   <div class="inner">
     <h2 class="fade-up">Project Timeline</h2>
@@ -861,11 +868,11 @@
       </div>
 
       <div class="milestone current">
-        <div class="milestone-dot">▶</div>
+        <div class="milestone-dot">●</div>
         <div class="milestone-info">
           <div class="milestone-weeks">Wks 7–9</div>
           <div class="milestone-title">Build &amp; Electronics</div>
-          <div class="milestone-status status-current">In Progress ← Now</div>
+          <div class="milestone-status status-current">In Progress • Now</div>
         </div>
       </div>
 
@@ -908,8 +915,8 @@
         <div class="m-info"><div class="m-weeks">Weeks 5–6</div><div class="m-title">Procurement &amp; Printing Begins</div><div class="m-desc">All parts ordered &amp; received, nose cone &amp; fuselage printing started</div></div>
       </div>
       <div class="m-milestone fade-up">
-        <div class="m-dot-col"><div class="m-dot current">▶</div><div class="m-line"></div></div>
-        <div class="m-info"><div class="m-weeks">Weeks 7–9 ← NOW</div><div class="m-title">Build &amp; Electronics</div><div class="m-desc">Finish printing, bench test all electronics, complete full assembly</div></div>
+        <div class="m-dot-col"><div class="m-dot current">●</div><div class="m-line"></div></div>
+        <div class="m-info"><div class="m-weeks">Weeks 7–9 • NOW</div><div class="m-title">Build &amp; Electronics</div><div class="m-desc">Finish printing, bench test all electronics, complete full assembly</div></div>
       </div>
       <div class="m-milestone fade-up">
         <div class="m-dot-col"><div class="m-dot upcoming">○</div><div class="m-line"></div></div>
@@ -927,7 +934,7 @@
   </div>
 </div>
 
-<!-- ═══ BUDGET ═════════════════════════════════════════════════════ -->
+<!-- --- BUDGET ----------------------------------------------------- -->
 <section id="budget">
   <h2 class="fade-up">Project Budget</h2>
 
@@ -1002,7 +1009,7 @@
   </div>
 </section>
 
-<!-- ═══ 3D MODEL ═══════════════════════════════════════════════════ -->
+<!-- --- 3D MODEL --------------------------------------------------- -->
 <section id="model">
   <h2 class="fade-up">Interactive 3D Model</h2>
 
@@ -1018,7 +1025,7 @@
   </p>
 </section>
 
-<!-- ═══ BUILD LOG ══════════════════════════════════════════════════ -->
+<!-- --- BUILD LOG -------------------------------------------------- -->
 <section id="progress">
   <h2 class="fade-up">Build Log</h2>
 
@@ -1058,7 +1065,7 @@
   </div>
 </section>
 
-<!-- ═══ TEAM ═══════════════════════════════════════════════════════ -->
+<!-- --- TEAM ------------------------------------------------------- -->
 <section id="team">
   <h2 class="fade-up">The Team</h2>
   <div class="team-grid">
@@ -1085,7 +1092,7 @@
   </div>
 </section>
 
-<!-- ═══ MEDIA ══════════════════════════════════════════════════════ -->
+<!-- --- MEDIA ------------------------------------------------------ -->
 <section id="media">
   <h2 class="fade-up">Media</h2>
 
@@ -1105,14 +1112,14 @@
   </div>
 </section>
 
-<!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+<!-- --- FOOTER ---------------------------------------------------- -->
 <footer>
   AE 403W &mdash; Wing in Ground Effect Vehicle &nbsp;|&nbsp; SDSU Aerospace Engineering &nbsp;|&nbsp; Spring 2026
 </footer>
 
-<!-- ═══ JAVASCRIPT ════════════════════════════════════════════════ -->
+<!-- --- JAVASCRIPT ------------------------------------------------ -->
 <script>
-  /* ── Countdown Timer ──────────────────────────────────────────── */
+  /* -- Countdown Timer -------------------------------------------- */
   const TARGET = new Date('2026-04-11T09:00:00');
   function pad(n) { return String(n).padStart(2, '0'); }
   function tick() {
@@ -1132,7 +1139,7 @@
   tick();
   setInterval(tick, 1000);
 
-  /* ── Scroll Animations (Intersection Observer) ────────────────── */
+  /* -- Scroll Animations (Intersection Observer) ------------------ */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1143,7 +1150,7 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  /* ── Budget & Timeline bar animation on scroll ────────────────── */
+  /* -- Budget & Timeline bar animation on scroll ------------------ */
   const barObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1174,4 +1181,3 @@
 </script>
 </body>
 </html>
-
