@@ -488,7 +488,7 @@
       transition: width 1.3s ease;
     }
 
-    .budget-main-bar.animated { width: 76%; }
+    .budget-main-bar.animated { width: 90%; }
 
     .budget-categories {
       display: flex;
@@ -525,6 +525,25 @@
     .bar-airframe { background: linear-gradient(90deg, #741321, #be2036); }
     .bar-control { background: linear-gradient(90deg, #6c111e, #b61d31); }
     .bar-avionics { background: linear-gradient(90deg, #67101c, #ae1b2d); }
+    .bar-manufacturing { background: linear-gradient(90deg, #5a0e19, #a01626); }
+
+    .print-main-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #7f192a 0%, var(--accent) 100%);
+      transition: width 1.3s ease;
+    }
+
+    .print-main-bar.animated { width: 16.8%; }
+
+    .print-cat-bar {
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      transition: width 1.15s ease;
+    }
+
+    .print-cat-bar.animated { width: var(--pct); }
 
     .budget-legend {
       display: flex;
@@ -779,8 +798,9 @@
   <a href="#specs">Specs</a>
   <a href="#timeline">Timeline</a>
   <a href="#budget">Budget</a>
+  <a href="#printing">3D Print</a>
   <a href="#model">3D Model</a>
-  <a href="#progress">Build Log</a>
+  <a href="#progress">Updates</a>
   <a href="#team">Team</a>
   <a href="#media">Media</a>
 </nav>
@@ -942,69 +962,144 @@
     <div class="budget-header">
       <div>
         <div class="budget-total-label">Total Budget</div>
-        <div class="budget-total-num">$2,500.00</div>
+        <div class="budget-total-num">$3,125.00</div>
       </div>
-      <div class="budget-badge">✓ All Parts Purchased</div>
+      <div class="budget-badge">✓ All Parts Ordered</div>
     </div>
 
     <!-- Main spend bar -->
     <div style="display:flex; justify-content:space-between; font-size:0.8em; color:#888; margin-bottom:6px;">
-      <span>Spent: <strong style="color:#fff;">$1,899.57</strong></span>
-      <span>Remaining: <strong style="color:#4caf50;">$600.43</strong></span>
+      <span>Spent: <strong style="color:#fff;">$2,818.64</strong></span>
+      <span>Remaining: <strong style="color:#4caf50;">$306.36</strong></span>
     </div>
     <div class="budget-main-bar-wrap">
       <div class="budget-main-bar" id="main-budget-bar"></div>
     </div>
-    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">76% of budget used</div>
+    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">90% of budget used</div>
 
     <div class="budget-categories">
       <div class="budget-cat">
         <div class="budget-cat-header">
           <span class="budget-cat-name">Propulsion &amp; Power</span>
-          <span class="budget-cat-amount">$635.44 &nbsp;<span style="color:#555;font-weight:normal;">(25.4%)</span></span>
+          <span class="budget-cat-amount">$744.39 &nbsp;<span style="color:#555;font-weight:normal;">(23.8%)</span></span>
         </div>
         <div class="budget-cat-bar-wrap">
-          <div class="budget-cat-bar bar-propulsion" style="--pct: 25.4%"></div>
+          <div class="budget-cat-bar bar-propulsion" style="--pct: 23.8%"></div>
+        </div>
+      </div>
+
+      <div class="budget-cat">
+        <div class="budget-cat-header">
+          <span class="budget-cat-name">Manufacturing &amp; Tooling</span>
+          <span class="budget-cat-amount">$671.10 &nbsp;<span style="color:#555;font-weight:normal;">(21.5%)</span></span>
+        </div>
+        <div class="budget-cat-bar-wrap">
+          <div class="budget-cat-bar bar-manufacturing" style="--pct: 21.5%"></div>
         </div>
       </div>
 
       <div class="budget-cat">
         <div class="budget-cat-header">
           <span class="budget-cat-name">Airframe &amp; Hardware</span>
-          <span class="budget-cat-amount">$514.84 &nbsp;<span style="color:#555;font-weight:normal;">(20.6%)</span></span>
+          <span class="budget-cat-amount">$653.86 &nbsp;<span style="color:#555;font-weight:normal;">(20.9%)</span></span>
         </div>
         <div class="budget-cat-bar-wrap">
-          <div class="budget-cat-bar bar-airframe" style="--pct: 20.6%"></div>
+          <div class="budget-cat-bar bar-airframe" style="--pct: 20.9%"></div>
         </div>
       </div>
 
       <div class="budget-cat">
         <div class="budget-cat-header">
           <span class="budget-cat-name">Flight Controller &amp; Navigation</span>
-          <span class="budget-cat-amount">$444.36 &nbsp;<span style="color:#555;font-weight:normal;">(17.8%)</span></span>
+          <span class="budget-cat-amount">$444.36 &nbsp;<span style="color:#555;font-weight:normal;">(14.2%)</span></span>
         </div>
         <div class="budget-cat-bar-wrap">
-          <div class="budget-cat-bar bar-avionics" style="--pct: 17.8%"></div>
+          <div class="budget-cat-bar bar-avionics" style="--pct: 14.2%"></div>
         </div>
       </div>
 
       <div class="budget-cat">
         <div class="budget-cat-header">
           <span class="budget-cat-name">Control &amp; Actuation</span>
-          <span class="budget-cat-amount">$304.93 &nbsp;<span style="color:#555;font-weight:normal;">(12.2%)</span></span>
+          <span class="budget-cat-amount">$304.93 &nbsp;<span style="color:#555;font-weight:normal;">(9.8%)</span></span>
         </div>
         <div class="budget-cat-bar-wrap">
-          <div class="budget-cat-bar bar-control" style="--pct: 12.2%"></div>
+          <div class="budget-cat-bar bar-control" style="--pct: 9.8%"></div>
         </div>
       </div>
     </div>
 
     <div class="budget-legend">
+      <div>3D Printer (Bambu Lab P2S): <span>$624.39</span></div>
       <div>Motors &amp; ESCs: <span>$426.42</span></div>
-      <div>Carbon Fiber Spars: <span>$301.55</span></div>
-      <div>Batteries: <span>$122.34</span></div>
-      <div>Flight Controller: <span>$290.17</span></div>
-      <div>Servos: <span>$84.95</span></div>
+      <div>Carbon Fiber Spars &amp; Tubes: <span>$329.82</span></div>
+      <div>Flight Controller (Pixhawk 6C): <span>$290.17</span></div>
+      <div>Batteries (2× 6S 5200mAh): <span>$122.34</span></div>
+      <div>Servos (5×): <span>$84.95</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- --- 3D PRINT PROGRESS ----------------------------------------- -->
+<section id="printing">
+  <h2 class="fade-up">3D Printing Progress</h2>
+
+  <div class="budget-card fade-up delay-1" id="print-card">
+    <div class="budget-header">
+      <div>
+        <div class="budget-total-label">Overall Completion</div>
+        <div class="budget-total-num">16.8%</div>
+      </div>
+      <div class="budget-badge" style="border-color:rgba(215,38,61,0.32);background:rgba(215,38,61,0.12);color:#f3afb8;">⬤ In Progress</div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; font-size:0.8em; color:#888; margin-bottom:6px;">
+      <span>Complete: <strong style="color:#fff;">40 hrs</strong></span>
+      <span>Remaining: <strong style="color:#f3afb8;">198 hrs</strong></span>
+    </div>
+    <div class="budget-main-bar-wrap">
+      <div class="print-main-bar" id="print-main-bar"></div>
+    </div>
+    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">40 of 238 estimated hours complete</div>
+
+    <div class="budget-categories">
+      <div class="budget-cat">
+        <div class="budget-cat-header">
+          <span class="budget-cat-name">Main Fuselage</span>
+          <span class="budget-cat-amount">40 / 55 hrs &nbsp;<span style="color:#555;font-weight:normal;">(72.7%)</span></span>
+        </div>
+        <div class="budget-cat-bar-wrap">
+          <div class="print-cat-bar bar-propulsion" style="--pct: 72.7%"></div>
+        </div>
+      </div>
+
+      <div class="budget-cat">
+        <div class="budget-cat-header">
+          <span class="budget-cat-name">Wings (Left &amp; Right)</span>
+          <span class="budget-cat-amount">0 / 128 hrs &nbsp;<span style="color:#555;font-weight:normal;">(0%)</span></span>
+        </div>
+        <div class="budget-cat-bar-wrap">
+          <div class="print-cat-bar bar-airframe" style="--pct: 0%"></div>
+        </div>
+      </div>
+
+      <div class="budget-cat">
+        <div class="budget-cat-header">
+          <span class="budget-cat-name">Tail Section</span>
+          <span class="budget-cat-amount">0 / 55 hrs &nbsp;<span style="color:#555;font-weight:normal;">(0%)</span></span>
+        </div>
+        <div class="budget-cat-bar-wrap">
+          <div class="print-cat-bar bar-control" style="--pct: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="budget-legend">
+      <div>Target First Flight: <span>April 10, 2026</span></div>
+      <div>Working Hours to Flight: <span>~216 hrs</span></div>
+      <div>Complete: <span>Fuselage Secs 1–4, 6</span></div>
+      <div>Printing: <span>Nose Cone, Section 5</span></div>
+      <div>Queued: <span>Wings &amp; Tail</span></div>
     </div>
   </div>
 </section>
@@ -1027,13 +1122,13 @@
 
 <!-- --- BUILD LOG -------------------------------------------------- -->
 <section id="progress">
-  <h2 class="fade-up">Build Log</h2>
+  <h2 class="fade-up">Project Updates</h2>
 
   <div class="update-card fade-up delay-1">
     <div class="date">March 2026</div>
     <h3>Weeks 7–9: Full Build Phase Underway</h3>
-    <p>Remaining electronics received. Bench testing motors and ESCs. Continuing 3D printing
-       of wing panels and control surfaces. Assembly of fuselage and spar structure in progress shown below.</p>
+    <p>To cut down on print times and eliminate dependence on shared lab printers, the team purchased a <strong>Bambu Lab P2S</strong> — dramatically reducing turnaround per part. Fuselage sections 1–4 and section 6 are complete (40 hrs done); nose cone and section 5 are still printing, with wings and tail queued after. Wiring diagram finalized. Control surfaces designed and nose cone redesigned; servo hatches in progress.</p>
+    <p>Bench testing motors underway — measuring thrust output, amp draw, motor and ESC temperature, and checking for voltage sag under load. Full system integration bench test planned once remaining parts arrive. <strong>Still on order:</strong> Pixhawk 6C, 3DR Radio Telemetry Kit, RadioMaster ELRS Receiver.</p>
     <div class="photo-grid">
       <img src="photos/FuselageAssembly.jpg" alt="Fuselage being assembled">
     </div>
@@ -1166,6 +1261,21 @@
   }, { threshold: 0.2 });
   const budgetCard = document.querySelector('.budget-card');
   if (budgetCard) barObserver.observe(budgetCard);
+
+  /* -- Print Progress bar animation -------------------------------- */
+  const printCard = document.getElementById('print-card');
+  if (printCard) {
+    const printObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.getElementById('print-main-bar').classList.add('animated');
+          document.querySelectorAll('.print-cat-bar').forEach(b => b.classList.add('animated'));
+          printObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    printObserver.observe(printCard);
+  }
 
   const timelineBar = document.getElementById('timeline-bar');
   if (timelineBar) {
