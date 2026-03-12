@@ -534,7 +534,7 @@
       transition: width 1.3s ease;
     }
 
-    .print-main-bar.animated { width: 16.8%; }
+    .print-main-bar.animated { width: 42.1%; }
 
     .print-cat-bar {
       height: 100%;
@@ -557,6 +557,88 @@
     }
 
     .budget-legend span { color: var(--text-secondary); }
+
+    .model-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .model-tab-btn {
+      flex: 1;
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .model-tab-btn .tab-title {
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .model-tab-btn .tab-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .model-tab-btn:hover {
+      border-color: var(--border-strong);
+      background: var(--bg-card);
+    }
+
+    .model-tab-btn.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--text-primary);
+    }
+
+    .model-tab-btn.active .tab-sub {
+      color: rgba(215, 38, 61, 0.7);
+    }
+
+    .model-panel { display: none; }
+    .model-panel.active { display: block; }
+
+    .model-desc {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .model-desc strong { color: var(--text-primary); }
+
+    .model-desc .feature-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .model-desc .pill {
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
 
     .model-wrap {
       width: 100%;
@@ -745,6 +827,7 @@
       .timeline-track { display: none; }
       .timeline-mobile { display: block; }
       .model-wrap { height: 340px; }
+      .model-tabs { flex-direction: column; }
       .budget-cat-header { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
     }
 
@@ -1048,19 +1131,19 @@
     <div class="budget-header">
       <div>
         <div class="budget-total-label">Overall Completion</div>
-        <div class="budget-total-num">16.8%</div>
+        <div class="budget-total-num">42.1%</div>
       </div>
       <div class="budget-badge" style="border-color:rgba(215,38,61,0.32);background:rgba(215,38,61,0.12);color:#f3afb8;">⬤ In Progress</div>
     </div>
 
     <div style="display:flex; justify-content:space-between; font-size:0.8em; color:#888; margin-bottom:6px;">
-      <span>Complete: <strong style="color:#fff;">40 hrs</strong></span>
-      <span>Remaining: <strong style="color:#f3afb8;">198 hrs</strong></span>
+      <span>Complete: <strong style="color:#fff;">80 hrs</strong></span>
+      <span>Remaining: <strong style="color:#f3afb8;">110 hrs</strong></span>
     </div>
     <div class="budget-main-bar-wrap">
       <div class="print-main-bar" id="print-main-bar"></div>
     </div>
-    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">40 of 238 estimated hours complete</div>
+    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">80 of 190 estimated hours complete</div>
 
     <div class="budget-categories">
       <div class="budget-cat">
@@ -1076,10 +1159,10 @@
       <div class="budget-cat">
         <div class="budget-cat-header">
           <span class="budget-cat-name">Wings (Left &amp; Right)</span>
-          <span class="budget-cat-amount">0 / 128 hrs &nbsp;<span style="color:#555;font-weight:normal;">(0%)</span></span>
+          <span class="budget-cat-amount">40 / 80 hrs &nbsp;<span style="color:#555;font-weight:normal;">(50%)</span></span>
         </div>
         <div class="budget-cat-bar-wrap">
-          <div class="print-cat-bar bar-airframe" style="--pct: 0%"></div>
+          <div class="print-cat-bar bar-airframe" style="--pct: 50%"></div>
         </div>
       </div>
 
@@ -1096,28 +1179,70 @@
 
     <div class="budget-legend">
       <div>Target First Flight: <span>April 10, 2026</span></div>
-      <div>Working Hours to Flight: <span>~216 hrs</span></div>
-      <div>Complete: <span>Fuselage Secs 1–4, 6</span></div>
-      <div>Printing: <span>Nose Cone, Section 5</span></div>
-      <div>Queued: <span>Wings &amp; Tail</span></div>
+      <div>Working Hours to Flight: <span>~207 hrs</span></div>
+      <div>Complete: <span>Fuselage Secs 1–4, 6; Wing Main Secs (L&amp;R)</span></div>
+      <div>Printing: <span>Nose Cone, Fuselage 5</span></div>
+      <div>Queued: <span>Wing Trailing &amp; Anhedral Secs, Tail</span></div>
     </div>
   </div>
 </section>
 
 <!-- --- 3D MODEL --------------------------------------------------- -->
 <section id="model">
-  <h2 class="fade-up">Interactive 3D Model</h2>
+  <h2 class="fade-up">Interactive 3D Models</h2>
 
-  <div class="model-wrap fade-up delay-1">
-    <iframe
-      src="https://sketchfab.com/models/e2470f7e1230412aa32481bfac9ef930/embed?autostart=1&ui_theme=dark&transparent=1"
-      allow="autoplay; fullscreen; xr-spatial-tracking"
-      allowfullscreen>
-    </iframe>
+  <div class="model-tabs fade-up delay-1">
+    <button class="model-tab-btn active" onclick="switchModel('aircraft', this)">
+      <span class="tab-title">Full Aircraft</span>
+      <span class="tab-sub">Complete WIG vehicle assembly</span>
+    </button>
+    <button class="model-tab-btn" onclick="switchModel('motor', this)">
+      <span class="tab-title">Motor Housing</span>
+      <span class="tab-sub">Modular nacelle &amp; coupling design</span>
+    </button>
   </div>
-  <p style="color:#888; font-size:0.82em; margin-top:8px;" class="fade-up delay-2">
-    Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-click to pan
-  </p>
+
+  <div id="panel-aircraft" class="model-panel active fade-up delay-2">
+    <div class="model-wrap">
+      <iframe
+        src="https://sketchfab.com/models/e2470f7e1230412aa32481bfac9ef930/embed?autostart=1&ui_theme=dark&transparent=1"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p style="color:#888; font-size:0.82em; margin-top:8px;">
+      Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-click to pan
+    </p>
+  </div>
+
+  <div id="panel-motor" class="model-panel fade-up delay-2">
+    <div class="model-wrap">
+      <iframe
+        src="https://sketchfab.com/models/ab8a9be416714f14a479ba3c0e8171b0/embed?autostart=1&ui_theme=dark&transparent=1"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p style="color:#888; font-size:0.82em; margin-top:8px;">
+      Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-click to pan
+    </p>
+    <div class="model-desc">
+      <strong>Motor Housing Assembly</strong> — The propulsion nacelle features a
+      <strong>tool-free magnetic coupling interface</strong> between each nacelle and the motor
+      housing structure, enabling rapid field removal and replacement without disturbing
+      surrounding components. The housing is built on a <strong>modular interlocking
+      architecture</strong> that registers directly into the wing box, allowing each nacelle
+      to be independently extracted, serviced, or reconfigured while maintaining full
+      structural continuity with the primary airframe.
+      <div class="feature-pills">
+        <span class="pill">Magnetic Quick-Disconnect</span>
+        <span class="pill">Tool-Free Field Service</span>
+        <span class="pill">Wing-Box Integration</span>
+        <span class="pill">Modular Nacelle Architecture</span>
+        <span class="pill">Independent Nacelle Removal</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- --- BUILD LOG -------------------------------------------------- -->
@@ -1288,6 +1413,14 @@
       });
     }, { threshold: 0.3 });
     tlObserver.observe(timelineBar);
+  }
+
+  /* -- Model Tab Switcher ----------------------------------------- */
+  function switchModel(id, btn) {
+    document.querySelectorAll('.model-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.model-tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
   }
 </script>
 </body>
