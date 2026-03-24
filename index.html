@@ -534,7 +534,7 @@
       transition: width 1.3s ease;
     }
 
-    .print-main-bar.animated { width: 42.1%; }
+    .print-main-bar.animated { width: 71.1%; }
 
     .print-cat-bar {
       height: 100%;
@@ -1158,38 +1158,38 @@
     <div class="budget-header">
       <div>
         <div class="budget-total-label">Overall Completion</div>
-        <div class="budget-total-num">42.1%</div>
+        <div class="budget-total-num">71.1%</div>
       </div>
       <div class="budget-badge" style="border-color:rgba(215,38,61,0.32);background:rgba(215,38,61,0.12);color:#f3afb8;">⬤ In Progress</div>
     </div>
 
     <div style="display:flex; justify-content:space-between; font-size:0.8em; color:#888; margin-bottom:6px;">
-      <span>Complete: <strong style="color:#fff;">80 hrs</strong></span>
-      <span>Remaining: <strong style="color:#f3afb8;">110 hrs</strong></span>
+      <span>Complete: <strong style="color:#fff;">192 hrs</strong></span>
+      <span>Remaining: <strong style="color:#f3afb8;">78 hrs</strong></span>
     </div>
     <div class="budget-main-bar-wrap">
       <div class="print-main-bar" id="print-main-bar"></div>
     </div>
-    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">80 of 190 estimated hours complete</div>
+    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">192 of 270 estimated hours complete</div>
 
     <div class="budget-categories">
       <div class="budget-cat">
         <div class="budget-cat-header">
           <span class="budget-cat-name">Main Fuselage</span>
-          <span class="budget-cat-amount">40 / 55 hrs &nbsp;<span style="color:#555;font-weight:normal;">(72.7%)</span></span>
+          <span class="budget-cat-amount">48 / 55 hrs &nbsp;<span style="color:#555;font-weight:normal;">(87.3%)</span></span>
         </div>
         <div class="budget-cat-bar-wrap">
-          <div class="print-cat-bar bar-propulsion" style="--pct: 72.7%"></div>
+          <div class="print-cat-bar bar-propulsion" style="--pct: 87.3%"></div>
         </div>
       </div>
 
       <div class="budget-cat">
         <div class="budget-cat-header">
           <span class="budget-cat-name">Wings (Left &amp; Right)</span>
-          <span class="budget-cat-amount">40 / 80 hrs &nbsp;<span style="color:#555;font-weight:normal;">(50%)</span></span>
+          <span class="budget-cat-amount">128 / 128 hrs &nbsp;<span style="color:#555;font-weight:normal;">(100%)</span></span>
         </div>
         <div class="budget-cat-bar-wrap">
-          <div class="print-cat-bar bar-airframe" style="--pct: 50%"></div>
+          <div class="print-cat-bar bar-airframe" style="--pct: 100%"></div>
         </div>
       </div>
 
@@ -1202,14 +1202,25 @@
           <div class="print-cat-bar bar-control" style="--pct: 0%"></div>
         </div>
       </div>
+
+      <div class="budget-cat">
+        <div class="budget-cat-header">
+          <span class="budget-cat-name">Motor Housing</span>
+          <span class="budget-cat-amount">16 / 32 hrs &nbsp;<span style="color:#555;font-weight:normal;">(50%)</span></span>
+        </div>
+        <div class="budget-cat-bar-wrap">
+          <div class="print-cat-bar bar-manufacturing" style="--pct: 50%"></div>
+        </div>
+      </div>
     </div>
 
     <div class="budget-legend">
       <div>Target First Flight: <span>April 10, 2026</span></div>
-      <div>Working Hours to Flight: <span>~207 hrs</span></div>
-      <div>Complete: <span>Fuselage Secs 1–4, 6; Wing Main Secs (L&amp;R)</span></div>
-      <div>Printing: <span>Nose Cone, Fuselage 5</span></div>
-      <div>Queued: <span>Wing Trailing &amp; Anhedral Secs, Tail</span></div>
+      <div>Working Hours to Flight: <span>~126 hrs</span></div>
+      <div>Est. Print Hours Left: <span>78 hrs</span></div>
+      <div>Complete: <span>Fuselage Secs 1–6; All Wing Sections (L&amp;R); Nacelles 1–2</span></div>
+      <div>Printing: <span>Nose Cone, Nacelles 3–4</span></div>
+      <div>Queued: <span>Tail Section (Vertical &amp; Horizontal)</span></div>
     </div>
   </div>
 </section>
@@ -1277,7 +1288,14 @@
   <h2 class="fade-up">Project Updates</h2>
 
   <div class="update-card fade-up delay-1">
-    <div class="date">March 2026</div>
+    <div class="date">Late March 2026</div>
+    <h3>Motor Testing &amp; Final Build Push</h3>
+    <p>Motor testing is currently in progress at the wind tunnel / aerospace lab. The build is almost complete — just waiting on the <strong>tail section</strong> and <strong>nose cone</strong> to finish printing. All wing sections and fuselage sections 1–6 are done, and motor housing nacelles 1–2 are complete with 3–4 in the queue.</p>
+    <p>A <strong>full system integration test</strong> is upcoming once the remaining printed parts are assembled. The team is getting ready for test flight in approximately <strong>2–3 weeks</strong>.</p>
+  </div>
+
+  <div class="update-card fade-up delay-2">
+    <div class="date">Early March 2026</div>
     <h3>Weeks 7–9: Full Build Phase Underway</h3>
     <p>To cut down on print times and eliminate dependence on shared lab printers, the team purchased a <strong>Bambu Lab P2S</strong> — dramatically reducing turnaround per part. Fuselage sections 1–4 and section 6 are complete (40 hrs done); nose cone and section 5 are still printing, with wings and tail queued after. Wiring diagram finalized. Control surfaces designed and nose cone redesigned; servo hatches in progress.</p>
     <p>Bench testing motors underway — measuring thrust output, amp draw, motor and ESC temperature, and checking for voltage sag under load. Full system integration bench test planned once remaining parts arrive. <strong>Still on order:</strong> Pixhawk 6C, 3DR Radio Telemetry Kit, RadioMaster ELRS Receiver.</p>
@@ -1286,7 +1304,7 @@
     </div>
   </div>
 
-  <div class="update-card fade-up delay-2">
+  <div class="update-card fade-up delay-3">
     <div class="date">February 23, 2026</div>
     <h3>Weeks 5–6: Parts Arrived, Printing Started</h3>
     <p>Motors, ESCs, batteries, propellers, carbon fiber spars, and all filament arrived.
@@ -1296,14 +1314,14 @@
     </div>
   </div>
 
-  <div class="update-card fade-up delay-3">
+  <div class="update-card fade-up delay-4">
     <div class="date">February 6, 2026</div>
     <h3>Week 4: Design Finalized, Proposal Submitted</h3>
     <p>Design locked: FX 63-137 airfoil, AR=5.4, 5.4ft wingspan, 4-motor distributed
        propulsion. Full SolidWorks assembly completed. Proposal submitted and approved.</p>
   </div>
 
-  <div class="update-card fade-up delay-4">
+  <div class="update-card fade-up delay-5">
     <div class="date">January 2026</div>
     <h3>Weeks 1–3: Research &amp; Trade Studies</h3>
     <p>Researched historical WIG vehicles (Caspian Sea Monster, Lun class, Orlyonok).
