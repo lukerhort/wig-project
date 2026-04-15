@@ -217,7 +217,7 @@
     .stats {
       margin-top: 1.8rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.8rem;
     }
 
@@ -287,7 +287,7 @@
       transition: width 1.1s ease;
     }
 
-    .timeline-progress-bar.animated { width: 28%; }
+    .timeline-progress-bar.animated { width: 60%; }
 
     .milestone {
       flex: 1;
@@ -534,7 +534,7 @@
       transition: width 1.3s ease;
     }
 
-    .print-main-bar.animated { width: 71.1%; }
+    .print-main-bar.animated { width: 100%; }
 
     .print-cat-bar {
       height: 100%;
@@ -746,25 +746,6 @@
       margin-top: 0.7rem;
     }
 
-    .photo-grid img {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      transition: transform 0.25s, border-color 0.25s;
-      display: block;
-    }
-
-    /* Keep Build Log images smaller than full card width */
-    #progress .photo-grid img {
-      width: min(100%, 340px);
-      height: auto;
-      margin: 0 auto;
-    }
-
-    .photo-grid img:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-    }
 
     .video-wrap {
       position: relative;
@@ -831,6 +812,206 @@
       .budget-cat-header { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
     }
 
+    /* -- Contact button & social icons ----------------------------- */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .contact-btn:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+      background: var(--accent-soft);
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .social-link {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+      background: var(--accent-soft);
+    }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+      fill: currentColor;
+    }
+
+    /* -- Taxi Test featured strip ---------------------------------- */
+    .taxi-strip {
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 1.4rem;
+    }
+
+    .taxi-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      flex-wrap: wrap;
+    }
+
+    .taxi-copy {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .taxi-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    .taxi-title {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+
+    .taxi-copy p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .taxi-watch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .taxi-watch-btn:hover {
+      background: rgba(215, 38, 61, 0.26);
+      border-color: #ef4158;
+    }
+
+    .taxi-video-wrap {
+      flex-shrink: 0;
+      width: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      background: #050505;
+      box-shadow: 0 0 0 1px rgba(215, 38, 61, 0.18), 0 8px 32px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .taxi-video-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 390px;
+      border: 0;
+    }
+
+    @media (max-width: 600px) {
+      .taxi-inner { flex-direction: column-reverse; gap: 1.4rem; }
+      .taxi-video-wrap { width: 100%; max-width: 300px; margin: 0 auto; }
+      .taxi-video-wrap iframe { height: 533px; }
+    }
+
+    /* -- Standardized photo sizing --------------------------------- */
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: transform 0.25s, border-color 0.25s;
+      display: block;
+    }
+
+    .photo-grid img:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    /* Smaller grid for 2-up portrait/square photos (e.g. soldering) */
+    .photo-grid-sm {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 580px;
+    }
+
+    .photo-grid-sm img {
+      aspect-ratio: 1 / 1;
+    }
+
+    /* Build log inline grids keep a modest max-width */
+    #progress .photo-grid {
+      max-width: 720px;
+    }
+
+    #progress .photo-grid img {
+      width: min(100%, 360px);
+      aspect-ratio: 4 / 3;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 760px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 520px) {
       header { padding: 5.4rem 1rem 2.5rem; }
       section,
@@ -838,6 +1019,7 @@
       .team-grid { grid-template-columns: 1fr; }
       .stats { grid-template-columns: 1fr 1fr; }
       .photo-grid { grid-template-columns: 1fr; }
+      .photo-grid-sm { grid-template-columns: 1fr; max-width: 100%; }
     }
   </style>
 </head>
@@ -847,11 +1029,28 @@
 <header>
   <h1>Wing in Ground Effect Vehicle</h1>
   <p>AE 403W Senior Design Project &nbsp;·&nbsp; San Diego State University &nbsp;·&nbsp; Spring 2026</p>
+  <div class="header-actions">
+    <a href="mailto:barrelborne@gmail.com" class="contact-btn">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      Contact the Team
+    </a>
+    <div class="social-links">
+      <a href="https://www.instagram.com/flybarrelborne/" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@barrelborne?lang=en" class="social-link" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.15 8.15 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.12z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/channel/UCJxvBL-e6ur4K2Hy4PsrokA" class="social-link" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+  </div>
 </header>
 
 <!-- --- COUNTDOWN ------------------------------------------------- -->
 <div class="countdown-strip">
-  <div class="strip-label">✈️ First Flight Target — April 11, 2026</div>
+  <div class="strip-label">✈️ First Flight Target — April 15, 2026</div>
   <div class="countdown-units">
     <div class="countdown-unit">
       <div class="num" id="cd-days">--</div>
@@ -875,6 +1074,30 @@
   </div>
 </div>
 
+<!-- --- TAXI FEATURED -------------------------------------------- -->
+<div class="taxi-strip">
+  <div class="taxi-inner">
+    <div class="taxi-copy">
+      <div class="taxi-eyebrow">🎬 Latest Milestone</div>
+      <div class="taxi-title">Taxi Test Complete</div>
+      <p>April 13, 2026 — The WIG vehicle completed its first ground run under full motor
+         power. All four motors, control surfaces, and the Pixhawk flight controller
+         performed nominally.</p>
+      <a href="https://www.youtube.com/shorts/zbi3fPpUhOI" class="taxi-watch-btn" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        Watch Taxi Test
+      </a>
+    </div>
+    <div class="taxi-video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/zbi3fPpUhOI"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
 <!-- --- NAV ------------------------------------------------------- -->
 <nav>
   <a href="#about">About</a>
@@ -884,6 +1107,7 @@
   <a href="#budget">Budget</a>
   <a href="#printing">3D Print</a>
   <a href="#model">3D Model</a>
+  <a href="#bench">Bench Test</a>
   <a href="#progress">Updates</a>
   <a href="#media">Media</a>
 </nav>
@@ -893,37 +1117,51 @@
   <h2 class="fade-up">About the Project</h2>
   <p class="fade-up delay-1">
     We are a team of four aerospace engineering students at SDSU building a radio-controlled
-    Wing in Ground Effect (WIG) vehicle — a craft that exploits the aerodynamic advantage of
-    flying very close to a surface to dramatically increase efficiency. Our prototype
-    demonstrates ground effect at RC scale using 3D printing, carbon fiber, and a custom
-    flight controller setup.
+    Wing in Ground Effect (WIG) vehicle. A WIG vehicle flies very close to the surface, where
+    ground proximity disrupts wingtip vortices, reduces induced drag, and increases lift
+    relative to open-air flight. Our prototype demonstrates this effect at RC scale using a
+    3D-printed airframe over carbon fiber spars, four outboard propeller motors, and a
+    Holybro Pixhawk 6C flight controller running ArduPlane.
   </p>
   <p class="fade-up delay-2">
-    Ground effect occurs when a wing flies within roughly one wingspan of the ground.
-    The surface disrupts wingtip vortices, reducing induced drag and increasing lift —
-    meaning the vehicle can fly faster or carry more weight for the same power.
+    Powered by four BrotherHobby Tornado T5 3115 Pro motors with Skywalker V2 ESCs
+    (Electronic Speed Controllers) and Ovonic 6S 5200mAh LiPo batteries, the vehicle
+    produces 28 lb of static maximum thrust at a total weight of 20 lb, for a thrust-to-weight
+    ratio of 1.4. Target flight time is 20 minutes.
   </p>
 
   <div class="stats">
     <div class="stat-box fade-up delay-1">
-      <div class="number">5.4 ft</div>
-      <div class="label">Wingspan</div>
+      <div class="number">20 lb</div>
+      <div class="label">Total Weight</div>
     </div>
     <div class="stat-box fade-up delay-2">
-      <div class="number">5.4</div>
-      <div class="label">Aspect Ratio</div>
+      <div class="number">4</div>
+      <div class="label">Propeller Motors</div>
     </div>
     <div class="stat-box fade-up delay-3">
-      <div class="number">4</div>
-      <div class="label">Motors</div>
+      <div class="number">28 lb</div>
+      <div class="label">Static Max Thrust</div>
     </div>
     <div class="stat-box fade-up delay-4">
-      <div class="number">10–12 lb</div>
-      <div class="label">Est. Weight</div>
+      <div class="number">20 min</div>
+      <div class="label">Target Flight Time</div>
     </div>
     <div class="stat-box fade-up delay-5">
-      <div class="number">FX 63-137</div>
-      <div class="label">Airfoil</div>
+      <div class="number">8×4.5 in</div>
+      <div class="label">Props (3-Blade)</div>
+    </div>
+    <div class="stat-box fade-up delay-1">
+      <div class="number">6S 5200mAh</div>
+      <div class="label">LiPo Batteries</div>
+    </div>
+    <div class="stat-box fade-up delay-2">
+      <div class="number">Skywalker V2</div>
+      <div class="label">ESCs</div>
+    </div>
+    <div class="stat-box fade-up delay-3">
+      <div class="number">Pixhawk 6C</div>
+      <div class="label">Flight Controller</div>
     </div>
   </div>
 </section>
@@ -958,16 +1196,17 @@
 <!-- --- SPECS ------------------------------------------------------ -->
 <section id="specs">
   <h2 class="fade-up">Design Specifications</h2>
-  <p class="fade-up delay-1"><strong>Airfoil:</strong> FX 63-137 — high-lift, low-speed, proven in ground effect vehicle designs</p>
-  <p class="fade-up delay-1"><strong>Wingspan:</strong> 5.4 ft (5.8 ft with winglets)</p>
-  <p class="fade-up delay-1"><strong>Mean Chord:</strong> 12 inches &nbsp;|&nbsp; <strong>Wing Area:</strong> 5.4 ft² &nbsp;|&nbsp; <strong>Outboard Anhedral:</strong> 15°</p>
-  <p class="fade-up delay-2"><strong>Propulsion:</strong> 4× BrotherHobby Tornado T5 3115 Pro motors, 4× Skywalker V2 ESCs</p>
-  <p class="fade-up delay-2"><strong>Battery:</strong> 2× Ovonic 6S LiPo 5200mAh &nbsp;|&nbsp; <strong>PDB:</strong> Matek X Class 12S</p>
-  <p class="fade-up delay-3"><strong>Flight Controller:</strong> Holybro Pixhawk 6C with dual GPS (PX4 / ArduPilot)</p>
+  <p class="fade-up delay-1"><strong>Airfoil:</strong> FX 63-137 — high-lift, low-speed profile, well-suited for ground effect vehicle designs</p>
+  <p class="fade-up delay-1"><strong>Wingspan:</strong> 5.4 ft (5.8 ft with winglets) &nbsp;|&nbsp; <strong>Aspect Ratio:</strong> 5.4</p>
+  <p class="fade-up delay-1"><strong>Mean Chord:</strong> 12 in &nbsp;|&nbsp; <strong>Wing Area:</strong> 5.4 ft² &nbsp;|&nbsp; <strong>Outboard Anhedral:</strong> 15°</p>
+  <p class="fade-up delay-2"><strong>Motors:</strong> 4× BrotherHobby Tornado T5 3115 Pro (outboard, tractor configuration)</p>
+  <p class="fade-up delay-2"><strong>Propellers:</strong> 4× 3-blade 8×4.5 in &nbsp;|&nbsp; <strong>ESCs:</strong> 4× Skywalker V2 Series</p>
+  <p class="fade-up delay-2"><strong>Batteries:</strong> 2× Ovonic 6S 5200mAh LiPo &nbsp;|&nbsp; <strong>PDB:</strong> Matek X Class 12S (Power Distribution Board)</p>
+  <p class="fade-up delay-3"><strong>Flight Controller:</strong> Holybro Pixhawk 6C running ArduPlane, dual GPS</p>
   <p class="fade-up delay-3"><strong>Rangefinder:</strong> Benewake TFmini-S LiDAR altimeter for ride height measurement</p>
-  <p class="fade-up delay-3"><strong>RC System:</strong> RadioMaster Boxer + ELRS receiver &nbsp;|&nbsp; <strong>Telemetry:</strong> 3DR 500mW 915MHz kit</p>
-  <p class="fade-up delay-4"><strong>Structure:</strong> 3D printed ASA + ABS over carbon fiber spar skeleton</p>
-  <p class="fade-up delay-4"><strong>Servos:</strong> 5× Hosyond DS3225 25kg high-torque metal gear</p>
+  <p class="fade-up delay-3"><strong>RC System:</strong> RadioMaster Boxer + ELRS receiver &nbsp;|&nbsp; <strong>Telemetry:</strong> 3DR 500mW 915MHz radio kit</p>
+  <p class="fade-up delay-4"><strong>Structure:</strong> 3D-printed ASA/ABS over carbon fiber spar skeleton</p>
+  <p class="fade-up delay-4"><strong>Servos:</strong> 5× Hosyond DS3225 25kg high-torque metal gear &nbsp;|&nbsp; <strong>UBEC:</strong> 5V/6V regulated BEC for avionics power</p>
 </section>
 
 <!-- --- TIMELINE --------------------------------------------------- -->
@@ -997,21 +1236,21 @@
         </div>
       </div>
 
-      <div class="milestone current">
-        <div class="milestone-dot">●</div>
+      <div class="milestone done">
+        <div class="milestone-dot">✓</div>
         <div class="milestone-info">
           <div class="milestone-weeks">Wks 7–9</div>
           <div class="milestone-title">Build &amp; Electronics</div>
-          <div class="milestone-status status-current">In Progress • Now</div>
+          <div class="milestone-status status-done">Complete</div>
         </div>
       </div>
 
-      <div class="milestone upcoming">
-        <div class="milestone-dot">○</div>
+      <div class="milestone current">
+        <div class="milestone-dot">●</div>
         <div class="milestone-info">
           <div class="milestone-weeks">Wks 10–11</div>
           <div class="milestone-title">Flight Testing</div>
-          <div class="milestone-status status-upcoming">Upcoming</div>
+          <div class="milestone-status status-current">In Progress • Now</div>
         </div>
       </div>
 
@@ -1045,12 +1284,12 @@
         <div class="m-info"><div class="m-weeks">Weeks 5–6</div><div class="m-title">Procurement &amp; Printing Begins</div><div class="m-desc">All parts ordered &amp; received, nose cone &amp; fuselage printing started</div></div>
       </div>
       <div class="m-milestone fade-up">
-        <div class="m-dot-col"><div class="m-dot current">●</div><div class="m-line"></div></div>
-        <div class="m-info"><div class="m-weeks">Weeks 7–9 • NOW</div><div class="m-title">Build &amp; Electronics</div><div class="m-desc">Finish printing, bench test all electronics, complete full assembly</div></div>
+        <div class="m-dot-col"><div class="m-dot done">✓</div><div class="m-line done"></div></div>
+        <div class="m-info"><div class="m-weeks">Weeks 7–9</div><div class="m-title">Build &amp; Electronics</div><div class="m-desc">Full assembly completed, bench testing, full system integration test</div></div>
       </div>
       <div class="m-milestone fade-up">
-        <div class="m-dot-col"><div class="m-dot upcoming">○</div><div class="m-line"></div></div>
-        <div class="m-info"><div class="m-weeks">Weeks 10–11</div><div class="m-title">Flight Testing</div><div class="m-desc">Ground effect testing, ride height and stability data collection</div></div>
+        <div class="m-dot-col"><div class="m-dot current">●</div><div class="m-line"></div></div>
+        <div class="m-info"><div class="m-weeks">Weeks 10–11 • NOW</div><div class="m-title">Flight Testing</div><div class="m-desc">Taxi testing complete, ground effect testing and stability data collection in progress</div></div>
       </div>
       <div class="m-milestone fade-up">
         <div class="m-dot-col"><div class="m-dot upcoming">○</div><div class="m-line"></div></div>
@@ -1158,28 +1397,28 @@
     <div class="budget-header">
       <div>
         <div class="budget-total-label">Overall Completion</div>
-        <div class="budget-total-num">71.1%</div>
+        <div class="budget-total-num">100%</div>
       </div>
-      <div class="budget-badge" style="border-color:rgba(215,38,61,0.32);background:rgba(215,38,61,0.12);color:#f3afb8;">⬤ In Progress</div>
+      <div class="budget-badge">✓ Complete</div>
     </div>
 
     <div style="display:flex; justify-content:space-between; font-size:0.8em; color:#888; margin-bottom:6px;">
-      <span>Complete: <strong style="color:#fff;">192 hrs</strong></span>
-      <span>Remaining: <strong style="color:#f3afb8;">78 hrs</strong></span>
+      <span>Complete: <strong style="color:#fff;">270 hrs</strong></span>
+      <span>Remaining: <strong style="color:#4caf50;">0 hrs</strong></span>
     </div>
     <div class="budget-main-bar-wrap">
       <div class="print-main-bar" id="print-main-bar"></div>
     </div>
-    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">192 of 270 estimated hours complete</div>
+    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">270 of 270 estimated hours complete</div>
 
     <div class="budget-categories">
       <div class="budget-cat">
         <div class="budget-cat-header">
           <span class="budget-cat-name">Main Fuselage</span>
-          <span class="budget-cat-amount">48 / 55 hrs &nbsp;<span style="color:#555;font-weight:normal;">(87.3%)</span></span>
+          <span class="budget-cat-amount">55 / 55 hrs &nbsp;<span style="color:#555;font-weight:normal;">(100%)</span></span>
         </div>
         <div class="budget-cat-bar-wrap">
-          <div class="print-cat-bar bar-propulsion" style="--pct: 87.3%"></div>
+          <div class="print-cat-bar bar-propulsion" style="--pct: 100%"></div>
         </div>
       </div>
 
@@ -1196,32 +1435,35 @@
       <div class="budget-cat">
         <div class="budget-cat-header">
           <span class="budget-cat-name">Tail Section</span>
-          <span class="budget-cat-amount">0 / 55 hrs &nbsp;<span style="color:#555;font-weight:normal;">(0%)</span></span>
+          <span class="budget-cat-amount">55 / 55 hrs &nbsp;<span style="color:#555;font-weight:normal;">(100%)</span></span>
         </div>
         <div class="budget-cat-bar-wrap">
-          <div class="print-cat-bar bar-control" style="--pct: 0%"></div>
+          <div class="print-cat-bar bar-control" style="--pct: 100%"></div>
         </div>
       </div>
 
       <div class="budget-cat">
         <div class="budget-cat-header">
           <span class="budget-cat-name">Motor Housing</span>
-          <span class="budget-cat-amount">16 / 32 hrs &nbsp;<span style="color:#555;font-weight:normal;">(50%)</span></span>
+          <span class="budget-cat-amount">32 / 32 hrs &nbsp;<span style="color:#555;font-weight:normal;">(100%)</span></span>
         </div>
         <div class="budget-cat-bar-wrap">
-          <div class="print-cat-bar bar-manufacturing" style="--pct: 50%"></div>
+          <div class="print-cat-bar bar-manufacturing" style="--pct: 100%"></div>
         </div>
       </div>
     </div>
 
     <div class="budget-legend">
-      <div>Target First Flight: <span>April 10, 2026</span></div>
-      <div>Working Hours to Flight: <span>~126 hrs</span></div>
-      <div>Est. Print Hours Left: <span>78 hrs</span></div>
-      <div>Complete: <span>Fuselage Secs 1–6; All Wing Sections (L&amp;R); Nacelles 1–2</span></div>
-      <div>Printing: <span>Nose Cone, Nacelles 3–4</span></div>
-      <div>Queued: <span>Tail Section (Vertical &amp; Horizontal)</span></div>
+      <div>Total Print Time: <span>270 hrs</span></div>
+      <div>Complete: <span>All sections — Fuselage, Wings (L&amp;R), Tail, Motor Housings (Nacelles 1–4)</span></div>
     </div>
+  </div>
+
+  <p class="media-label fade-up" style="margin-top:1.5rem;">Print Photos</p>
+  <div class="photo-grid fade-up delay-1">
+    <img src="photos/WingPrint2.jpg" alt="Wing section printing in the Bambu Lab P2S">
+    <img src="photos/3DPrinterSetup.jpg" alt="Bambu Lab P2S printer on custom stand">
+    <img src="photos/WingWithSpar.JPG" alt="Carbon fiber spar being fitted into printed fuselage section">
   </div>
 </section>
 
@@ -1243,7 +1485,7 @@
   <div id="panel-aircraft" class="model-panel active fade-up delay-2">
     <div class="model-wrap">
       <iframe
-        src="https://sketchfab.com/models/e2470f7e1230412aa32481bfac9ef930/embed?autostart=1&ui_theme=dark&transparent=1"
+        src="https://sketchfab.com/models/02b9c1e5526e42b3b16c13e3010b344c/embed?autostart=1&ui_theme=dark&transparent=1"
         allow="autoplay; fullscreen; xr-spatial-tracking"
         allowfullscreen>
       </iframe>
@@ -1283,18 +1525,69 @@
   </div>
 </section>
 
+<!-- --- BENCH TESTING --------------------------------------------- -->
+<section id="bench">
+  <h2 class="fade-up">Bench Testing</h2>
+
+  <p class="fade-up delay-1">
+    We tested the motors and propellers in SDSU's low-speed wind tunnel to measure maximum
+    static thrust. A custom aluminum mount was machined and fitted with a load cell to record
+    thrust output at varying throttle levels across all four motor and propeller combinations.
+    Bench testing validates performance before flight and helps catch mechanical or electrical
+    problems early, before the airframe is at risk.
+  </p>
+  <p class="fade-up delay-2">
+    We also completed all power system soldering: the four Skywalker V2 ESCs were soldered to
+    the Matek X Class 12S PDB (Power Distribution Board), along with the power module and the
+    UBEC (Universal Battery Eliminator Circuit) supplying regulated 5V power to the avionics
+    stack. Measured static max thrust across all four motors: <strong>28 lb</strong>.
+  </p>
+
+  <p class="media-label fade-up delay-2">Wind Tunnel Testing</p>
+  <div class="photo-grid fade-up delay-3">
+    <img src="photos/MountMachining.jpeg" alt="CNC milling the aluminum wind tunnel mount">
+    <img src="photos/BenchTestMount.jpeg" alt="Finished aluminum motor mount for thrust testing">
+    <img src="photos/TestPropMounted.jpeg" alt="Motor and propeller mounted inside SDSU wind tunnel">
+  </div>
+
+  <p class="media-label fade-up" style="margin-top:1.5rem;">Soldering — ESCs, PDB, and Power Module</p>
+  <div class="photo-grid photo-grid-sm fade-up delay-1">
+    <img src="photos/FinalPDBSolder2.jpeg" alt="PDB with ESC wires soldered, close-up">
+    <img src="photos/FinalSolder.JPG" alt="Completed ESC and PDB wiring harness">
+  </div>
+</section>
+
 <!-- --- BUILD LOG -------------------------------------------------- -->
 <section id="progress">
   <h2 class="fade-up">Project Updates</h2>
 
   <div class="update-card fade-up delay-1">
-    <div class="date">Late March 2026</div>
-    <h3>Motor Testing &amp; Final Build Push</h3>
-    <p>Motor testing is currently in progress at the wind tunnel / aerospace lab. The build is almost complete — just waiting on the <strong>tail section</strong> and <strong>nose cone</strong> to finish printing. All wing sections and fuselage sections 1–6 are done, and motor housing nacelles 1–2 are complete with 3–4 in the queue.</p>
-    <p>A <strong>full system integration test</strong> is upcoming once the remaining printed parts are assembled. The team is getting ready for test flight in approximately <strong>2–3 weeks</strong>.</p>
+    <div class="date">April 13, 2026</div>
+    <h3>Taxi Test</h3>
+    <p>The fully assembled WIG vehicle completed its first taxi test. With all four motors running, the aircraft tracked straight on the ground and responded correctly to control inputs from the RadioMaster Boxer. Control surfaces and motor arming all checked out nominal. The airframe held up without issue under motor thrust loading.</p>
+    <div class="photo-grid">
+      <img src="photos/TaxiTestBuild.jpeg" alt="WIG vehicle ready for taxi test">
+      <img src="photos/Assembly.JPG" alt="Fully assembled WIG vehicle">
+    </div>
   </div>
 
   <div class="update-card fade-up delay-2">
+    <div class="date">April 9, 2026</div>
+    <h3>Full Assembly and Full System Test</h3>
+    <p>Full airframe assembly completed. All electronics, wiring, servos, and avionics installed and integrated. Completed a full system test including motor arming, ESC (Electronic Speed Controller) calibration, control surface travel checks, and Pixhawk sensor validation. Flight controller configured in ArduPlane with telemetry link established.</p>
+    <div class="photo-grid">
+      <img src="photos/Avionics.JPG" alt="Avionics bay wired and integrated">
+      <img src="photos/FlightControllerConfig.jpg" alt="Flight controller configuration in QGroundControl">
+    </div>
+  </div>
+
+  <div class="update-card fade-up delay-3">
+    <div class="date">Late March 2026</div>
+    <h3>Motor Testing &amp; Final Build Push</h3>
+    <p>Motor and propeller bench testing completed at SDSU's low-speed wind tunnel. All wing sections, fuselage, tail, and motor housing nacelles finished printing. Full assembly and wiring underway.</p>
+  </div>
+
+  <div class="update-card fade-up delay-4">
     <div class="date">Early March 2026</div>
     <h3>Weeks 7–9: Full Build Phase Underway</h3>
     <p>To cut down on print times and eliminate dependence on shared lab printers, the team purchased a <strong>Bambu Lab P2S</strong> — dramatically reducing turnaround per part. Fuselage sections 1–4 and section 6 are complete (40 hrs done); nose cone and section 5 are still printing, with wings and tail queued after. Wiring diagram finalized. Control surfaces designed and nose cone redesigned; servo hatches in progress.</p>
@@ -1304,7 +1597,7 @@
     </div>
   </div>
 
-  <div class="update-card fade-up delay-3">
+  <div class="update-card fade-up delay-5">
     <div class="date">February 23, 2026</div>
     <h3>Weeks 5–6: Parts Arrived, Printing Started</h3>
     <p>Motors, ESCs, batteries, propellers, carbon fiber spars, and all filament arrived.
@@ -1314,14 +1607,14 @@
     </div>
   </div>
 
-  <div class="update-card fade-up delay-4">
+  <div class="update-card fade-up">
     <div class="date">February 6, 2026</div>
     <h3>Week 4: Design Finalized, Proposal Submitted</h3>
     <p>Design locked: FX 63-137 airfoil, AR=5.4, 5.4ft wingspan, 4-motor distributed
        propulsion. Full SolidWorks assembly completed. Proposal submitted and approved.</p>
   </div>
 
-  <div class="update-card fade-up delay-5">
+  <div class="update-card fade-up delay-1">
     <div class="date">January 2026</div>
     <h3>Weeks 1–3: Research &amp; Trade Studies</h3>
     <p>Researched historical WIG vehicles (Caspian Sea Monster, Lun class, Orlyonok).
@@ -1345,9 +1638,13 @@
 
   <p class="media-label fade-up">Build Photos</p>
   <div class="photo-grid fade-up delay-1">
+    <img src="photos/Assembly.JPG" alt="Fully assembled WIG vehicle on grass">
+    <img src="photos/TaxiTestBuild.jpeg" alt="WIG vehicle during taxi test">
+    <img src="photos/Avionics.JPG" alt="Avionics bay — Pixhawk, PDB, and wiring integrated">
+    <img src="photos/FuselageAndCarbon.JPG" alt="3D-printed fuselage section with carbon fiber spar">
+    <img src="photos/FuselageAssembly.jpg" alt="Fuselage assembly in progress">
     <img src="photos/NoseConeRev0.jpg" alt="Nose cone — first structural component off the printer">
-    <img src="photos/FuselageAssembly.jpg" alt="Fuselage Assembly (Rev0)">
-    <!-- Add more photos: <img src="photos/filename.jpg" alt="description"> -->
+    <img src="photos/RadioController.jpg" alt="RadioMaster Boxer RC controller">
   </div>
 </section>
 
@@ -1359,7 +1656,7 @@
 <!-- --- JAVASCRIPT ------------------------------------------------ -->
 <script>
   /* -- Countdown Timer -------------------------------------------- */
-  const TARGET = new Date('2026-04-11T09:00:00');
+  const TARGET = new Date('2026-04-15T09:00:00');
   function pad(n) { return String(n).padStart(2, '0'); }
   function tick() {
     const diff = TARGET - new Date();
