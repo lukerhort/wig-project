@@ -103,62 +103,6 @@
       z-index: 1;
     }
 
-    .countdown-strip {
-      padding: 1rem 1.25rem 1.2rem;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: #070707;
-      text-align: center;
-    }
-
-    .countdown-strip .strip-label {
-      color: var(--accent);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-    }
-
-    .countdown-units {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-    }
-
-    .countdown-unit {
-      min-width: 64px;
-      padding: 0.55rem 0.4rem;
-      border-radius: 7px;
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-    }
-
-    .countdown-unit .num {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      line-height: 1;
-      color: var(--text-primary);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .countdown-unit .unit-label {
-      display: block;
-      margin-top: 0.2rem;
-      font-size: 0.63rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .countdown-divider {
-      color: var(--text-muted);
-      font-size: 1.4rem;
-      line-height: 1;
-    }
-
     nav {
       position: sticky;
       top: 0;
@@ -939,9 +883,7 @@
     }
 
     @media (max-width: 760px) {
-      .countdown-units { gap: 0.5rem; }
-      .countdown-unit { min-width: 56px; }
-      .timeline-track { display: none; }
+.timeline-track { display: none; }
       .timeline-mobile { display: block; }
       .model-wrap { height: 340px; }
       .model-tabs { flex-direction: column; }
@@ -1298,31 +1240,6 @@
   </div>
 </header>
 
-<!-- --- COUNTDOWN ------------------------------------------------- -->
-<div class="countdown-strip">
-  <div class="strip-label">✈️ First Flight Target — April 15, 2026</div>
-  <div class="countdown-units">
-    <div class="countdown-unit">
-      <div class="num" id="cd-days">--</div>
-      <div class="unit-label">Days</div>
-    </div>
-    <div class="countdown-divider">:</div>
-    <div class="countdown-unit">
-      <div class="num" id="cd-hours">--</div>
-      <div class="unit-label">Hours</div>
-    </div>
-    <div class="countdown-divider">:</div>
-    <div class="countdown-unit">
-      <div class="num" id="cd-mins">--</div>
-      <div class="unit-label">Minutes</div>
-    </div>
-    <div class="countdown-divider">:</div>
-    <div class="countdown-unit">
-      <div class="num" id="cd-secs">--</div>
-      <div class="unit-label">Seconds</div>
-    </div>
-  </div>
-</div>
 
 <!-- --- TAXI FEATURED -------------------------------------------- -->
 <div class="taxi-strip">
@@ -1843,7 +1760,7 @@
   <div class="photo-grid fade-up delay-3">
     <img src="photos/MountMachining.jpeg" alt="CNC milling the aluminum wind tunnel mount">
     <img src="photos/BenchTestMount.jpeg" alt="Finished aluminum motor mount for thrust testing">
-    <img src="photos/TestPropMounted.jpeg" alt="Motor and propeller mounted inside SDSU wind tunnel">
+    <img src="photos/TestPropMounted.jpeg" alt="Motor and propeller mounted inside SDSU wind tunnel" style="object-position: top;">
   </div>
 
   <p class="media-label fade-up" style="margin-top:1.5rem;">Soldering — ESCs, PDB, and Power Module</p>
@@ -1978,26 +1895,6 @@
 
 <!-- --- JAVASCRIPT ------------------------------------------------ -->
 <script>
-  /* -- Countdown Timer -------------------------------------------- */
-  const TARGET = new Date('2026-04-15T09:00:00');
-  function pad(n) { return String(n).padStart(2, '0'); }
-  function tick() {
-    const diff = TARGET - new Date();
-    if (diff <= 0) {
-      document.getElementById('cd-days').textContent  = '00';
-      document.getElementById('cd-hours').textContent = '00';
-      document.getElementById('cd-mins').textContent  = '00';
-      document.getElementById('cd-secs').textContent  = '00';
-      return;
-    }
-    document.getElementById('cd-days').textContent  = Math.floor(diff / 86400000);
-    document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
-    document.getElementById('cd-mins').textContent  = pad(Math.floor((diff % 3600000) / 60000));
-    document.getElementById('cd-secs').textContent  = pad(Math.floor((diff % 60000) / 1000));
-  }
-  tick();
-  setInterval(tick, 1000);
-
   /* -- Scroll Animations (Intersection Observer) ------------------ */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
