@@ -3,19 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AE 403W — Wing in Ground Effect Vehicle</title>
-  <meta name="description" content="SDSU AE 403W senior design project: a radio-controlled Wing in Ground Effect (WIG) vehicle built by four aerospace engineering students. 20 lb, 4 motors, 28 lb static thrust — now in flight testing.">
+  <title>BarrelBorne — Wing in Ground Effect Vehicle | SDSU AE 403W</title>
+  <meta name="description" content="BarrelBorne: a radio-controlled Wing-In-Ground-Effect (WIG) vehicle designed, built, and flight-tested by four SDSU aerospace engineering seniors. 20 lb airframe, 4-motor distributed propulsion, Pixhawk 6C avionics. Achieved lift-off in ground effect at 42.7 mph.">
   <!-- Open Graph -->
-  <meta property="og:title" content="Wing in Ground Effect Vehicle — SDSU AE 403W">
-  <meta property="og:description" content="Senior design project: a radio-controlled WIG vehicle. 20 lb airframe, 4 BrotherHobby motors, Pixhawk 6C flight controller. Taxi test complete — first flight upcoming.">
+  <meta property="og:title" content="BarrelBorne — Wing in Ground Effect Vehicle | SDSU AE 403W">
+  <meta property="og:description" content="A four-person SDSU senior design project: a radio-controlled WIG (Wing-In-Ground-Effect) vehicle that flew. 20 lb airframe, 4 BrotherHobby motors, Pixhawk 6C flight controller. Lift-off achieved at 42.7 mph in ground effect.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="photos/Assembly.JPG">
+  <meta property="og:image" content="photos/Design Day/DesignDay2.jpg">
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Wing in Ground Effect Vehicle — SDSU AE 403W">
-  <meta name="twitter:description" content="Senior design project: a radio-controlled WIG vehicle. Taxi test complete — first flight upcoming.">
-  <meta name="twitter:image" content="photos/Assembly.JPG">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="twitter:title" content="BarrelBorne — Wing in Ground Effect Vehicle | SDSU AE 403W">
+  <meta name="twitter:description" content="SDSU senior design: radio-controlled WIG vehicle. Designed, built, and flown. Lift-off achieved at 42.7 mph in ground effect.">
+  <meta name="twitter:image" content="photos/Design Day/DesignDay2.jpg">
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SPLSPEQFPQ"></script>
   <script>
@@ -89,7 +94,7 @@
       font-size: clamp(2.2rem, 7vw, 4rem);
       font-weight: 400;
       letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       position: relative;
       z-index: 1;
     }
@@ -98,9 +103,27 @@
       color: var(--text-secondary);
       font-size: 1rem;
       max-width: 760px;
-      margin: 0 auto;
+      margin: 0 auto 0.5rem;
       position: relative;
       z-index: 1;
+    }
+
+    .header-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-meta {
+      font-size: 0.78rem !important;
+      letter-spacing: 0.08em;
+      color: var(--text-muted) !important;
+      margin-top: 0.4rem !important;
     }
 
     nav {
@@ -324,7 +347,7 @@
       transition: width 1.1s ease;
     }
 
-    .timeline-progress-bar.animated { width: 60%; }
+    .timeline-progress-bar.animated { width: 100%; }
 
     .milestone {
       flex: 1;
@@ -1071,6 +1094,320 @@
       .specs-grid { grid-template-columns: 1fr; }
     }
 
+    /* -- Ground Effect explainer cards ----------------------------- */
+    .ge-section {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(215, 38, 61, 0.08), transparent 55%),
+        var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      max-width: none;
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+    }
+
+    .ge-section > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
+
+    .ge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.6rem;
+    }
+
+    .ge-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem 1.3rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .ge-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    .ge-card-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .ge-card-headline {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      color: var(--text-primary);
+      margin-bottom: 0.7rem;
+      line-height: 1.2;
+    }
+
+    .ge-card p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin: 0 !important;
+    }
+
+    @media (max-width: 880px) {
+      .ge-grid { grid-template-columns: 1fr; }
+    }
+
+    /* -- Flight Test grid (videos) --------------------------------- */
+    .flight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.1rem;
+      margin-top: 1.6rem;
+    }
+
+    .flight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .flight-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    .flight-card.success { border-left: 3px solid var(--success); }
+    .flight-card.crash { border-left: 3px solid var(--accent); }
+
+    .flight-video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      max-height: 600px;
+      background: #050505;
+    }
+
+    .flight-video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .flight-meta {
+      padding: 1rem 1.15rem 1.1rem;
+    }
+
+    .flight-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+    }
+
+    .flight-card.success .flight-tag { color: #76d892; }
+
+    .flight-meta h3 {
+      font-size: 1.02rem;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .flight-meta p {
+      font-size: 0.85rem !important;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0 !important;
+    }
+
+    @media (max-width: 760px) {
+      .flight-grid { grid-template-columns: 1fr; }
+      .flight-video { aspect-ratio: 9/16; max-height: 540px; }
+    }
+
+    /* -- Flight 4 results data callout ----------------------------- */
+    .flight4-results {
+      margin-top: 1.6rem;
+      padding: 1.6rem 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .flight4-results .stat-block .num {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      color: var(--accent);
+      line-height: 1.05;
+    }
+
+    .flight4-results .stat-block .lbl {
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    @media (max-width: 760px) {
+      .flight4-results { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* -- Design Day section --------------------------------------- */
+    .dd-hero {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.2rem;
+      margin-top: 1.6rem;
+      align-items: stretch;
+    }
+
+    .dd-hero-img {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      background: #050505;
+      aspect-ratio: 4/3;
+    }
+
+    .dd-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .dd-hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0.4rem 0.2rem;
+    }
+
+    .dd-hero-text h3 {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 0.7rem;
+    }
+
+    .dd-hero-text p {
+      color: var(--text-secondary);
+      font-size: 0.92rem !important;
+      line-height: 1.7;
+      margin: 0 0 0.7rem !important;
+    }
+
+    .poster-card {
+      margin-top: 1.5rem;
+      padding: 1.15rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .poster-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .poster-card-text { flex: 1; min-width: 220px; }
+    .poster-card-text .pc-title { color: var(--text-primary); font-size: 0.98rem; font-weight: 600; }
+    .poster-card-text .pc-sub { color: var(--text-muted); font-size: 0.8rem; margin-top: 0.18rem; }
+
+    .poster-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .poster-card-btn:hover { background: rgba(215, 38, 61, 0.26); border-color: #ef4158; }
+
+    @media (max-width: 760px) {
+      .dd-hero { grid-template-columns: 1fr; }
+    }
+
+    /* -- Team section group photo --------------------------------- */
+    .team-hero {
+      margin-top: 1.4rem;
+      margin-bottom: 1.8rem;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      background: #050505;
+      position: relative;
+    }
+
+    .team-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .team-hero-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.2rem 1.4rem 1.1rem;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(9,9,9,0.9) 80%);
+      color: var(--text-primary);
+      pointer-events: none;
+    }
+
+    .team-hero-caption .eyebrow {
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .team-hero-caption .title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      line-height: 1.2;
+    }
+
+    /* -- Crash gallery -------------------------------------------- */
+    .crash-section {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      max-width: none;
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+    }
+
+    .crash-section > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
+
     /* -- Taxi Test featured strip ---------------------------------- */
     .taxi-strip {
       background: var(--bg-elevated);
@@ -1188,6 +1525,12 @@
       aspect-ratio: 1 / 1;
     }
 
+    /* People photo grid: taller aspect ratio so faces aren't cut off */
+    .photo-grid-people img {
+      aspect-ratio: 3 / 4;
+      object-position: center top;
+    }
+
     /* Build log inline grids keep a modest max-width */
     #progress .photo-grid {
       max-width: 720px;
@@ -1219,8 +1562,10 @@
 
 <!-- --- HEADER ---------------------------------------------------- -->
 <header>
+  <div class="header-eyebrow">BarrelBorne &nbsp;·&nbsp; AE 403W Senior Design</div>
   <h1>Wing in Ground Effect Vehicle</h1>
-  <p>AE 403W Senior Design Project &nbsp;·&nbsp; San Diego State University &nbsp;·&nbsp; Spring 2026</p>
+  <p>A radio-controlled WIG (Wing-In-Ground-Effect) aircraft designed, built, and flown by four SDSU aerospace engineering seniors &mdash; 20&nbsp;lb airframe, four-motor distributed propulsion, lift-off achieved at 42.7&nbsp;mph in ground effect.</p>
+  <p class="header-meta">San Diego State University &nbsp;·&nbsp; Spring 2026 &nbsp;·&nbsp; Project complete</p>
   <div class="header-actions">
     <a href="mailto:barrelborne@gmail.com" class="contact-btn">
       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -1241,25 +1586,24 @@
 </header>
 
 
-<!-- --- TAXI FEATURED -------------------------------------------- -->
+<!-- --- FEATURED ACHIEVEMENT ------------------------------------ -->
 <div class="taxi-strip">
   <div class="taxi-inner">
     <div class="taxi-copy">
-      <div class="taxi-eyebrow">🎬 Latest Milestone</div>
-      <div class="taxi-title">Taxi Test Complete</div>
-      <p>April 13, 2026 — The WIG vehicle completed its first ground run under full motor
-         power. All four motors, control surfaces, and the Pixhawk flight controller
-         performed nominally.</p>
-      <a href="https://www.youtube.com/shorts/zbi3fPpUhOI" class="taxi-watch-btn" target="_blank" rel="noopener">
+      <div class="taxi-eyebrow">🏁 Project Complete</div>
+      <div class="taxi-title">Lift-off Achieved in Ground Effect</div>
+      <p>Across four flight-test sessions, BarrelBorne reached a peak speed of <strong>42.7&nbsp;mph</strong> &mdash; clearing the 41&nbsp;mph design takeoff speed &mdash; and produced a brief, stable lift-off in ground effect with pitch and roll attitude held within ±1°. After two crashes, two rebuilds, and seven runs in the final test session, the team showcased the completed vehicle at SDSU Senior Design Day on May&nbsp;6,&nbsp;2026.</p>
+      <a href="#flight-tests" class="taxi-watch-btn">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        Watch Taxi Test
+        Watch Flight Footage
       </a>
     </div>
     <div class="taxi-video-wrap">
       <iframe
-        src="https://www.youtube.com/embed/zbi3fPpUhOI"
+        src="https://www.youtube.com/embed/quD8pqZeEFg"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
+        allowfullscreen
+        title="Ground Effect Flight Test 4 — best run">
       </iframe>
     </div>
   </div>
@@ -1279,14 +1623,14 @@
     <div class="nav-links" id="nav-links">
       <a href="#about">About</a>
       <a href="#team">Team</a>
+      <a href="#flight-tests">Flight Tests</a>
+      <a href="#design-day">Design Day</a>
       <a href="#specs">Specs</a>
+      <a href="#model">3D Model</a>
+      <a href="#bench">Bench</a>
+      <a href="#progress">Build Story</a>
       <a href="#timeline">Timeline</a>
       <a href="#budget">Budget</a>
-      <a href="#printing">3D Print</a>
-      <a href="#model">3D Model</a>
-      <a href="#bench">Bench Test</a>
-      <a href="#progress">Updates</a>
-      <a href="#media">Media</a>
     </div>
   </div>
 </nav>
@@ -1295,24 +1639,30 @@
 <section id="about">
   <h2 class="fade-up">About the Project</h2>
   <p class="fade-up delay-1">
-    We are a team of four aerospace engineering students at SDSU building a radio-controlled
-    Wing in Ground Effect (WIG) vehicle. A WIG vehicle flies very close to the surface, where
-    ground proximity disrupts wingtip vortices, reduces induced drag, and increases lift
-    relative to open-air flight. Our prototype demonstrates this effect at RC scale using a
-    3D-printed airframe over carbon fiber spars, four outboard propeller motors, and a
-    Holybro Pixhawk 6C flight controller running ArduPlane.
+    BarrelBorne is a radio-controlled Wing-In-Ground-Effect (WIG) vehicle designed,
+    fabricated, instrumented, and flight-tested over a single semester by four aerospace
+    engineering seniors at San Diego State University (SDSU). A WIG vehicle is an aircraft
+    that flies just above a surface &mdash; typically water or open ground &mdash; to exploit
+    aerodynamic <strong>ground effect</strong>. When the wing is within roughly one chord
+    length of the surface, lift increases for the same angle of attack; within one wingspan,
+    induced drag drops sharply because the ground disrupts the wing's downwash and weakens
+    the wingtip vortices that normally drive induced drag.
   </p>
   <p class="fade-up delay-2">
-    Powered by four BrotherHobby Tornado T5 3115 Pro motors with Skywalker V2 ESCs
-    (Electronic Speed Controllers) and Ovonic 6S 5200mAh LiPo batteries, the vehicle
-    produces 28 lb of static maximum thrust at a total weight of 20 lb, for a thrust-to-weight
-    ratio of 1.4. Target flight time is 20 minutes.
+    The completed prototype uses a 3D-printed ABS (Acrylonitrile&nbsp;Butadiene&nbsp;Styrene)
+    airframe wrapped around a carbon fiber spar skeleton, four outboard
+    BrotherHobby&nbsp;Tornado&nbsp;T5 motors driving 8&times;4.5&nbsp;in three-blade propellers,
+    and a Holybro&nbsp;Pixhawk&nbsp;6C flight controller running ArduPlane firmware. Wing-loading
+    analysis was hand-validated, the propulsion stack was bench-tested in SDSU's low-speed wind
+    tunnel, and the vehicle was flown across four field test sessions &mdash; including two
+    high-energy crashes and two successful ground-effect runs &mdash; before being shown at
+    SDSU Senior Design Day.
   </p>
 
   <div class="stats">
     <div class="stat-box fade-up delay-1">
-      <div class="number">20 lb</div>
-      <div class="label">Total Weight</div>
+      <div class="number">20.025 lb</div>
+      <div class="label">Final Weight</div>
     </div>
     <div class="stat-box fade-up delay-2">
       <div class="number">4</div>
@@ -1320,23 +1670,23 @@
     </div>
     <div class="stat-box fade-up delay-3">
       <div class="number">28 lb</div>
-      <div class="label">Static Max Thrust</div>
+      <div class="label">Total Static Thrust</div>
     </div>
     <div class="stat-box fade-up delay-4">
-      <div class="number">20 min</div>
-      <div class="label">Target Flight Time</div>
+      <div class="number">42.7 mph</div>
+      <div class="label">Peak Flight Speed</div>
     </div>
     <div class="stat-box fade-up delay-5">
-      <div class="number">8×4.5 in</div>
-      <div class="label">Props (3-Blade)</div>
+      <div class="number">5.4 ft</div>
+      <div class="label">Wingspan</div>
     </div>
     <div class="stat-box fade-up delay-1">
-      <div class="number">6S 5200mAh</div>
-      <div class="label">LiPo Batteries</div>
+      <div class="number">7.42%</div>
+      <div class="label">Static Margin</div>
     </div>
     <div class="stat-box fade-up delay-2">
-      <div class="number">Skywalker V2</div>
-      <div class="label">ESCs</div>
+      <div class="number">4</div>
+      <div class="label">Flight Test Sessions</div>
     </div>
     <div class="stat-box fade-up delay-3">
       <div class="number">Pixhawk 6C</div>
@@ -1348,27 +1698,252 @@
 <!-- --- TEAM ------------------------------------------------------- -->
 <section id="team">
   <h2 class="fade-up">The Team</h2>
+
+  <div class="team-hero fade-up delay-1">
+    <img src="photos/Design Day/DesignDay2.jpg" alt="The four-person BarrelBorne team standing behind the completed WIG vehicle at SDSU Senior Design Day, May 6, 2026.">
+    <div class="team-hero-caption">
+      <div class="eyebrow">SDSU Senior Design Day &nbsp;&middot;&nbsp; May 6, 2026</div>
+      <div class="title">The BarrelBorne team with the completed vehicle</div>
+    </div>
+  </div>
+
   <div class="team-grid">
     <div class="team-member fade-up delay-1">
-      <img src="photos/LukeHeadshot.jpg" alt="Luke Horton">
+      <img src="photos/Headshots/LukeHeadshot.jpg" alt="Luke Horton">
       <div class="name">Luke Horton</div>
-      <div class="role">Aerospace Engineering</div>
+      <div class="role">Avionics Lead &amp; Pilot</div>
     </div>
     <div class="team-member fade-up delay-2">
-      <img src="photos/EthanHeadshot.jpg" alt="Ethan Barichievich">
-      <div class="name">Ethan Barichievich</div>
-      <div class="role">Aerospace Engineering</div>
+      <img src="photos/Headshots/MaxHeadshot.jpg" alt="Maxwell O'Neill">
+      <div class="name">Maxwell O'Neill</div>
+      <div class="role">Propulsion, Test &amp; Integration Lead</div>
     </div>
     <div class="team-member fade-up delay-3">
-      <img src="photos/WillieHeadshot.jpg" alt="Willie Peterson">
-      <div class="name">Willie Peterson</div>
-      <div class="role">Aerospace Engineering</div>
+      <img src="photos/Headshots/EthanHeadshot.jpg" alt="Ethan Barichievich">
+      <div class="name">Ethan Barichievich</div>
+      <div class="role">Design &amp; Manufacturing Lead</div>
     </div>
     <div class="team-member fade-up delay-4">
-      <img src="photos/MaxHeadshot.jpg" alt="Maxwell O'Neill">
-      <div class="name">Maxwell O'Neill</div>
-      <div class="role">Aerospace Engineering</div>
+      <img src="photos/Headshots/WillieHeadshot.jpg" alt="William Peterson">
+      <div class="name">William Peterson</div>
+      <div class="role">Performance &amp; Data Analysis Lead</div>
     </div>
+  </div>
+</section>
+
+
+<!-- --- GROUND EFFECT EXPLAINER --------------------------------- -->
+<section id="ground-effect" class="ge-section">
+  <h2 class="fade-up">What Is Ground Effect?</h2>
+  <div class="ge-grid">
+    <div class="ge-card fade-up delay-1">
+      <div class="ge-card-eyebrow">Within 1 chord length</div>
+      <div class="ge-card-headline">Lift increases</div>
+      <p>When a wing flies within roughly one chord length of the surface, the ground
+         physically blocks the downwash leaving the trailing edge. The result is a higher
+         effective angle of attack and a measurable bump in coefficient of lift (C<sub>L</sub>)
+         for the same pitch.</p>
+    </div>
+    <div class="ge-card fade-up delay-2">
+      <div class="ge-card-eyebrow">Within 1 wingspan</div>
+      <div class="ge-card-headline">Induced drag drops</div>
+      <p>Inside one wingspan, the ground also disrupts the wingtip vortices that drive
+         induced drag. Cruise efficiency rises sharply &mdash; the same lift is held with
+         less power, which is why historical Soviet ekranoplans like the Caspian Sea Monster
+         could carry enormous payloads at high speed.</p>
+    </div>
+    <div class="ge-card fade-up delay-3">
+      <div class="ge-card-eyebrow">Real-world WIGs</div>
+      <div class="ge-card-headline">Heritage</div>
+      <p>BarrelBorne's design draws from the lineage of full-scale WIG vehicles &mdash; the
+         KM "Caspian Sea Monster" (USSR, 1966), the A-90&nbsp;Orlyonok (1979), the Boeing
+         Pelican&nbsp;ULTRA concept, the AirFish&nbsp;8, and modern entrants like REGENT's
+         Viceroy seaglider &mdash; scaled down to a 5.4&nbsp;ft wingspan for academic flight
+         test.</p>
+    </div>
+  </div>
+</section>
+
+<!-- --- FLIGHT TESTS ---------------------------------------------- -->
+<section id="flight-tests">
+  <h2 class="fade-up">Flight Test Footage</h2>
+
+  <p class="fade-up delay-1">
+    Four field-test sessions on the SDSU practice field. Two ended in successful
+    ground-effect runs; two ended in high-energy crashes that drove rebuild and design
+    changes &mdash; including a stiffer wingbox, a revised nose cone, and a center-of-gravity
+    (CG) shift to improve pitch stability. The clips below are the highlights.
+  </p>
+
+  <div class="flight-grid">
+    <div class="flight-card success fade-up delay-1">
+      <div class="flight-video">
+        <iframe
+          src="https://www.youtube.com/embed/quD8pqZeEFg"
+          title="Ground Effect Flight Test 4 — best run, lift-off at 42.7 mph"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="flight-meta">
+        <span class="flight-tag">&#10003; Ground Effect Flight Test 4</span>
+        <h3>Best run: 42.7 mph, brief lift-off in ground effect</h3>
+        <p>The cleanest flight of the program. Vehicle exceeded the 41&nbsp;mph design takeoff
+           speed for the adjusted center of gravity, attitude held within roughly &plusmn;1&deg;
+           in pitch and roll, and a brief +0.73&nbsp;m altitude rise was recorded before
+           settling back to the surface.</p>
+      </div>
+    </div>
+
+    <div class="flight-card success fade-up delay-2">
+      <div class="flight-video">
+        <iframe
+          src="https://www.youtube.com/embed/mykl0BKCNfY"
+          title="Ground Effect Flight Test — clean low-altitude run"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="flight-meta">
+        <span class="flight-tag">&#10003; Ground Effect Flight Test</span>
+        <h3>Clean low-altitude run</h3>
+        <p>Vehicle accelerated cleanly along the field with stable attitude, demonstrating
+           controllable behavior in ground effect. One of seven runs recorded during the
+           final test session.</p>
+      </div>
+    </div>
+
+    <div class="flight-card crash fade-up delay-3">
+      <div class="flight-video">
+        <iframe
+          src="https://www.youtube.com/embed/4pSrZZSl3Ag"
+          title="Crash 1 — Flight Test 2"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="flight-meta">
+        <span class="flight-tag">&#9888; Crash &mdash; Flight Test 2</span>
+        <h3>Wingbox &amp; tail destroyed, no electrical damage</h3>
+        <p>The first crash took out the wingbox, tail-fuselage section, vertical stabilizer,
+           nose cone, and wing section&nbsp;4 &mdash; but the avionics survived intact. Drove
+           the wingbox stiffness and CG redesign that fed into Flight Test 3.</p>
+      </div>
+    </div>
+
+    <div class="flight-card crash fade-up delay-4">
+      <div class="flight-video">
+        <iframe
+          src="https://www.youtube.com/embed/nuWass-OT1Y"
+          title="Crash 2 — Flight Test 3"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="flight-meta">
+        <span class="flight-tag">&#9888; Crash &mdash; Flight Test 3</span>
+        <h3>Rapid pitch-up at 16&ndash;17 m/s</h3>
+        <p>Telemetry shows the vehicle reached approximately 38&nbsp;mph cleanly, then pitched
+           up to roughly 70&ndash;80&deg; nose-up around t=486&nbsp;s with throttle cut shortly
+           after &mdash; consistent with an aerodynamic event rather than sustained pilot
+           input. Left wing and wingbox destroyed; avionics again survived.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="media-label fade-up" style="margin-top: 2rem;">Final Flight Test Results &mdash; Session 4</p>
+
+  <div class="flight4-results fade-up delay-1">
+    <div class="stat-block">
+      <div class="num">7</div>
+      <div class="lbl">Runs in 1 Hour</div>
+    </div>
+    <div class="stat-block">
+      <div class="num">42.7 mph</div>
+      <div class="lbl">Peak Speed</div>
+    </div>
+    <div class="stat-block">
+      <div class="num">+0.73 m</div>
+      <div class="lbl">Altitude Rise</div>
+    </div>
+    <div class="stat-block">
+      <div class="num">&plusmn;1&deg;</div>
+      <div class="lbl">Pitch &amp; Roll Stability</div>
+    </div>
+  </div>
+
+  <p class="media-label fade-up" style="margin-top: 2rem;">Flight Test Day &mdash; Session 4</p>
+  <div class="photo-grid photo-grid-people fade-up delay-1">
+    <img src="photos/Flight Test 4/SquadPostedUp.jpg" alt="The team standing behind the WIG vehicle on the practice field at golden hour during Flight Test 4." style="object-position: center top;">
+    <img src="photos/Flight Test 4/SquadWorking2.jpg" alt="Team performing a pre-flight check on the WIG vehicle on the practice field." style="object-position: center top;">
+    <img src="photos/Flight Test 4/SquadWorking.jpg" alt="Team logging data and adjusting the airframe between runs." style="object-position: center top;">
+  </div>
+</section>
+
+<!-- --- CRASHES ---------------------------------------------------- -->
+<section id="crashes" class="crash-section">
+  <h2 class="fade-up">Crash Aftermath &amp; Iteration</h2>
+  <p class="fade-up delay-1">
+    Two of the four flight test sessions ended in destructive crashes. Both events drove
+    real engineering changes &mdash; a stiffer wingbox, a redesigned nose cone, and a CG
+    shift &mdash; and in both cases the avionics stack survived intact, allowing the team to
+    reuse the Pixhawk, ESCs, and motors across rebuilds.
+  </p>
+  <div class="photo-grid fade-up delay-2">
+    <img src="photos/Crashes/Crash2Impact.jpg" alt="Frame of the WIG vehicle nosing into the practice field at the moment of impact during Flight Test 3.">
+    <img src="photos/Crashes/Crash1Aftermath.jpg" alt="Aftermath of Crash 1: wingbox and tail destroyed, fuselage and wings on the field with battery pack and avionics nearby." style="object-position: top;">
+    <img src="photos/Crashes/Crash2Aftermath.jpg" alt="Aftermath of Crash 2: left wing and wingbox destroyed, team kneeling next to the vehicle to assess damage." style="object-position: top;">
+  </div>
+</section>
+
+<!-- --- DESIGN DAY ------------------------------------------------- -->
+<section id="design-day">
+  <h2 class="fade-up">SDSU Senior Design Day</h2>
+  <p class="fade-up delay-1">
+    On May&nbsp;6,&nbsp;2026, BarrelBorne was presented at SDSU's Senior Design Day &mdash; the
+    annual capstone showcase where graduating engineering seniors from every discipline present
+    their projects to industry judges, faculty, and the public.
+    <a href="https://www.engineering.sdsu.edu/community-engagement/design-day"
+       target="_blank" rel="noopener" style="color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--accent);">Learn more about Design Day &rarr;</a>
+  </p>
+
+  <div class="dd-hero fade-up delay-2">
+    <div class="dd-hero-img">
+      <img src="photos/Design Day/DesignDay3.jpg" alt="The team showcasing BarrelBorne to attendees at SDSU Senior Design Day, with the project poster visible behind them.">
+    </div>
+    <div class="dd-hero-text">
+      <h3>Booth #15 &mdash; College of Engineering</h3>
+      <p>Showcased the completed airframe alongside the team's printed Senior Design Day
+         poster, telemetry data from Flight Test 4, and live demonstrations of the modular
+         motor-housing nacelle disconnect system.</p>
+      <p>The team walked judges and attendees through the build journey &mdash; from
+         airfoil trade studies through two crashes, two rebuilds, and a successful
+         ground-effect flight.</p>
+    </div>
+  </div>
+
+  <div class="poster-card fade-up delay-3">
+    <div class="poster-card-icon">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+    </div>
+    <div class="poster-card-text">
+      <div class="pc-title">SDSU Senior Design Day Poster</div>
+      <div class="pc-sub">Full project poster &mdash; objectives, design, build, flight test results &nbsp;&middot;&nbsp; PDF</div>
+    </div>
+    <a href="barrelborne_ae_poster.pdf" target="_blank" rel="noopener" class="poster-card-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      View Poster
+    </a>
+  </div>
+
+  <p class="media-label fade-up" style="margin-top: 2rem;">Design Day Photos</p>
+  <div class="photo-grid fade-up delay-1 photo-grid-people">
+    <img src="photos/Design Day/DesignDay2.jpg" alt="The four-person team posing behind the BarrelBorne airframe at the booth.">
+    <img src="photos/Design Day/DesignDay1.JPG" alt="The team posing in matching blue polos behind the BarrelBorne airframe on display at the booth." style="object-position: center top;">
+    <img src="photos/Design Day/DesignDay3.jpg" alt="The team walking attendees through telemetry data and the project poster at Design Day." style="object-position: center top;">
+  </div>
+
+  <p class="media-label fade-up" style="margin-top: 2rem;">Graduation</p>
+  <div class="photo-grid fade-up delay-2 photo-grid-people">
+    <img src="photos/Grad Pics/GradPics1.JPG" alt="The team in graduation regalia holding the WIG vehicle under the SDSU Engineering archway." style="object-position: center top;">
+    <img src="photos/Grad Pics/GradPics2.JPG" alt="Team holding the WIG vehicle overhead under the Engineering archway." style="object-position: center top;">
+    <img src="photos/Grad Pics/GradPics3.JPG" alt="Team in graduation stoles holding the WIG vehicle in front of the SDSU campus arch." style="object-position: center top;">
   </div>
 </section>
 
@@ -1422,189 +1997,82 @@
   </div>
 </section>
 
-<!-- --- TIMELINE --------------------------------------------------- -->
-<div class="timeline-section" id="timeline">
-  <div class="inner">
-    <h2 class="fade-up">Project Timeline</h2>
+<!-- --- 3D MODEL --------------------------------------------------- -->
+<section id="model">
+  <h2 class="fade-up">Interactive 3D Models</h2>
+  <p class="fade-up delay-1">
+    Explore the full aircraft and the modular motor-housing nacelle in your browser.
+    Drag to rotate, scroll to zoom.
+  </p>
 
-    <!-- Desktop timeline -->
-    <div class="timeline-track fade-up delay-1">
-      <div class="timeline-progress-bar" id="timeline-bar"></div>
-
-      <div class="milestone done">
-        <div class="milestone-dot">✓</div>
-        <div class="milestone-info">
-          <div class="milestone-weeks">Wks 1–4</div>
-          <div class="milestone-title">Research &amp; Design</div>
-          <div class="milestone-status status-done">Complete</div>
-        </div>
-      </div>
-
-      <div class="milestone done">
-        <div class="milestone-dot">✓</div>
-        <div class="milestone-info">
-          <div class="milestone-weeks">Wks 5–6</div>
-          <div class="milestone-title">Procurement &amp; Printing Begins</div>
-          <div class="milestone-status status-done">Complete</div>
-        </div>
-      </div>
-
-      <div class="milestone done">
-        <div class="milestone-dot">✓</div>
-        <div class="milestone-info">
-          <div class="milestone-weeks">Wks 7–9</div>
-          <div class="milestone-title">Build &amp; Electronics</div>
-          <div class="milestone-status status-done">Complete</div>
-        </div>
-      </div>
-
-      <div class="milestone current">
-        <div class="milestone-dot">●</div>
-        <div class="milestone-info">
-          <div class="milestone-weeks">Wks 10–11</div>
-          <div class="milestone-title">Flight Testing</div>
-          <div class="milestone-status status-current">In Progress • Now</div>
-        </div>
-      </div>
-
-      <div class="milestone upcoming">
-        <div class="milestone-dot">○</div>
-        <div class="milestone-info">
-          <div class="milestone-weeks">Wk 12</div>
-          <div class="milestone-title">CFD Analysis</div>
-          <div class="milestone-status status-upcoming">Upcoming</div>
-        </div>
-      </div>
-
-      <div class="milestone upcoming">
-        <div class="milestone-dot">○</div>
-        <div class="milestone-info">
-          <div class="milestone-weeks">Wks 13–14</div>
-          <div class="milestone-title">Final Report</div>
-          <div class="milestone-status status-upcoming">Upcoming</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile timeline -->
-    <div class="timeline-mobile">
-      <div class="m-milestone fade-up">
-        <div class="m-dot-col"><div class="m-dot done">✓</div><div class="m-line done"></div></div>
-        <div class="m-info"><div class="m-weeks">Weeks 1–4</div><div class="m-title">Research &amp; Design</div><div class="m-desc">Airfoil trade study, requirements locked, SolidWorks model</div></div>
-      </div>
-      <div class="m-milestone fade-up">
-        <div class="m-dot-col"><div class="m-dot done">✓</div><div class="m-line done"></div></div>
-        <div class="m-info"><div class="m-weeks">Weeks 5–6</div><div class="m-title">Procurement &amp; Printing Begins</div><div class="m-desc">All parts ordered &amp; received, nose cone &amp; fuselage printing started</div></div>
-      </div>
-      <div class="m-milestone fade-up">
-        <div class="m-dot-col"><div class="m-dot done">✓</div><div class="m-line done"></div></div>
-        <div class="m-info"><div class="m-weeks">Weeks 7–9</div><div class="m-title">Build &amp; Electronics</div><div class="m-desc">Full assembly completed, bench testing, full system integration test</div></div>
-      </div>
-      <div class="m-milestone fade-up">
-        <div class="m-dot-col"><div class="m-dot current">●</div><div class="m-line"></div></div>
-        <div class="m-info"><div class="m-weeks">Weeks 10–11 • NOW</div><div class="m-title">Flight Testing</div><div class="m-desc">Taxi testing complete, ground effect testing and stability data collection in progress</div></div>
-      </div>
-      <div class="m-milestone fade-up">
-        <div class="m-dot-col"><div class="m-dot upcoming">○</div><div class="m-line"></div></div>
-        <div class="m-info"><div class="m-weeks">Week 12</div><div class="m-title">CFD Analysis</div><div class="m-desc">Run CFD, compare simulated vs. measured results</div></div>
-      </div>
-      <div class="m-milestone fade-up">
-        <div class="m-dot-col"><div class="m-dot upcoming">○</div></div>
-        <div class="m-info"><div class="m-weeks">Weeks 13–14</div><div class="m-title">Final Report</div><div class="m-desc">Finalize figures, polish and submit final report</div></div>
-      </div>
-    </div>
+  <div class="model-tabs fade-up delay-1">
+    <button class="model-tab-btn active" onclick="switchModel('aircraft', this)">
+      <span class="tab-title">Full Aircraft</span>
+      <span class="tab-sub">Complete WIG vehicle assembly</span>
+    </button>
+    <button class="model-tab-btn" onclick="switchModel('motor', this)">
+      <span class="tab-title">Motor Housing</span>
+      <span class="tab-sub">Modular nacelle &amp; coupling design</span>
+    </button>
   </div>
-</div>
 
-<!-- --- BUDGET ----------------------------------------------------- -->
-<section id="budget">
-  <h2 class="fade-up">Project Budget</h2>
-
-  <div class="budget-card fade-up delay-1">
-    <div class="budget-header">
-      <div>
-        <div class="budget-total-label">Total Budget</div>
-        <div class="budget-total-num">$3,125.00</div>
-      </div>
-      <div class="budget-badge">✓ All Parts Ordered</div>
+  <div id="panel-aircraft" class="model-panel active fade-up delay-2">
+    <div class="model-wrap">
+      <iframe
+        src="https://sketchfab.com/models/02b9c1e5526e42b3b16c13e3010b344c/embed?autostart=1&ui_theme=dark&transparent=1"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
     </div>
+    <p style="color:#888; font-size:0.82em; margin-top:8px;">
+      Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-click to pan
+    </p>
+  </div>
 
-    <!-- Main spend bar -->
-    <div style="display:flex; justify-content:space-between; font-size:0.8em; color:#888; margin-bottom:6px;">
-      <span>Spent: <strong style="color:#fff;">$2,818.64</strong></span>
-      <span>Remaining: <strong style="color:#4caf50;">$306.36</strong></span>
+  <div id="panel-motor" class="model-panel fade-up delay-2">
+    <div class="model-wrap">
+      <iframe
+        src="https://sketchfab.com/models/ab8a9be416714f14a479ba3c0e8171b0/embed?autostart=1&ui_theme=dark&transparent=1"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
     </div>
-    <div class="budget-main-bar-wrap">
-      <div class="budget-main-bar" id="main-budget-bar"></div>
-    </div>
-    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">90% of budget used</div>
-
-    <div class="budget-categories">
-      <div class="budget-cat">
-        <div class="budget-cat-header">
-          <span class="budget-cat-name">Propulsion &amp; Power</span>
-          <span class="budget-cat-amount">$744.39 &nbsp;<span style="color:#555;font-weight:normal;">(23.8%)</span></span>
-        </div>
-        <div class="budget-cat-bar-wrap">
-          <div class="budget-cat-bar bar-propulsion" style="--pct: 23.8%"></div>
-        </div>
+    <p style="color:#888; font-size:0.82em; margin-top:8px;">
+      Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-click to pan
+    </p>
+    <div class="model-desc">
+      <strong>Motor Housing Assembly</strong> &mdash; The propulsion nacelle features a
+      <strong>tool-free magnetic coupling interface</strong> between each nacelle and the motor
+      housing structure, enabling rapid field removal and replacement without disturbing
+      surrounding components. The housing is built on a <strong>modular interlocking
+      architecture</strong> that registers directly into the wing box, allowing each nacelle
+      to be independently extracted, serviced, or reconfigured while maintaining full
+      structural continuity with the primary airframe.
+      <div class="feature-pills">
+        <span class="pill">Magnetic Quick-Disconnect</span>
+        <span class="pill">Tool-Free Field Service</span>
+        <span class="pill">Wing-Box Integration</span>
+        <span class="pill">Modular Nacelle Architecture</span>
+        <span class="pill">Independent Nacelle Removal</span>
       </div>
-
-      <div class="budget-cat">
-        <div class="budget-cat-header">
-          <span class="budget-cat-name">Manufacturing &amp; Tooling</span>
-          <span class="budget-cat-amount">$671.10 &nbsp;<span style="color:#555;font-weight:normal;">(21.5%)</span></span>
-        </div>
-        <div class="budget-cat-bar-wrap">
-          <div class="budget-cat-bar bar-manufacturing" style="--pct: 21.5%"></div>
-        </div>
-      </div>
-
-      <div class="budget-cat">
-        <div class="budget-cat-header">
-          <span class="budget-cat-name">Airframe &amp; Hardware</span>
-          <span class="budget-cat-amount">$653.86 &nbsp;<span style="color:#555;font-weight:normal;">(20.9%)</span></span>
-        </div>
-        <div class="budget-cat-bar-wrap">
-          <div class="budget-cat-bar bar-airframe" style="--pct: 20.9%"></div>
-        </div>
-      </div>
-
-      <div class="budget-cat">
-        <div class="budget-cat-header">
-          <span class="budget-cat-name">Flight Controller &amp; Navigation</span>
-          <span class="budget-cat-amount">$444.36 &nbsp;<span style="color:#555;font-weight:normal;">(14.2%)</span></span>
-        </div>
-        <div class="budget-cat-bar-wrap">
-          <div class="budget-cat-bar bar-avionics" style="--pct: 14.2%"></div>
-        </div>
-      </div>
-
-      <div class="budget-cat">
-        <div class="budget-cat-header">
-          <span class="budget-cat-name">Control &amp; Actuation</span>
-          <span class="budget-cat-amount">$304.93 &nbsp;<span style="color:#555;font-weight:normal;">(9.8%)</span></span>
-        </div>
-        <div class="budget-cat-bar-wrap">
-          <div class="budget-cat-bar bar-control" style="--pct: 9.8%"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="budget-legend">
-      <div>3D Printer (Bambu Lab P2S): <span>$624.39</span></div>
-      <div>Motors &amp; ESCs: <span>$426.42</span></div>
-      <div>Carbon Fiber Spars &amp; Tubes: <span>$329.82</span></div>
-      <div>Flight Controller (Pixhawk 6C): <span>$290.17</span></div>
-      <div>Batteries (2× 6S 5200mAh): <span>$122.34</span></div>
-      <div>Servos (5×): <span>$84.95</span></div>
     </div>
   </div>
 </section>
 
-<!-- --- 3D PRINT PROGRESS ----------------------------------------- -->
+
+<!-- --- MANUFACTURING / 3D PRINT --------------------------------- -->
 <section id="printing">
-  <h2 class="fade-up">3D Printing Progress</h2>
+  <h2 class="fade-up">Manufacturing &amp; 3D Printing</h2>
+
+  <p class="fade-up delay-1">
+    The entire airframe was 3D printed in-house on a <strong>Bambu Lab P2S</strong> using
+    Acrylonitrile&nbsp;Butadiene&nbsp;Styrene (ABS) plastic with 10% gyroid infill and a
+    two-wall-loop perimeter, then bonded to a carbon fiber spar skeleton. Total print time
+    across the fuselage, both wings, the tail, and four motor-housing nacelles was
+    <strong>270&nbsp;hours</strong>. Buying the printer outright cut turnaround per part and
+    eliminated lab-printer queue delays during the build phase.
+  </p>
+
 
   <div class="budget-card fade-up delay-1" id="print-card">
     <div class="budget-header">
@@ -1680,64 +2148,6 @@
   </div>
 </section>
 
-<!-- --- 3D MODEL --------------------------------------------------- -->
-<section id="model">
-  <h2 class="fade-up">Interactive 3D Models</h2>
-
-  <div class="model-tabs fade-up delay-1">
-    <button class="model-tab-btn active" onclick="switchModel('aircraft', this)">
-      <span class="tab-title">Full Aircraft</span>
-      <span class="tab-sub">Complete WIG vehicle assembly</span>
-    </button>
-    <button class="model-tab-btn" onclick="switchModel('motor', this)">
-      <span class="tab-title">Motor Housing</span>
-      <span class="tab-sub">Modular nacelle &amp; coupling design</span>
-    </button>
-  </div>
-
-  <div id="panel-aircraft" class="model-panel active fade-up delay-2">
-    <div class="model-wrap">
-      <iframe
-        src="https://sketchfab.com/models/02b9c1e5526e42b3b16c13e3010b344c/embed?autostart=1&ui_theme=dark&transparent=1"
-        allow="autoplay; fullscreen; xr-spatial-tracking"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <p style="color:#888; font-size:0.82em; margin-top:8px;">
-      Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-click to pan
-    </p>
-  </div>
-
-  <div id="panel-motor" class="model-panel fade-up delay-2">
-    <div class="model-wrap">
-      <iframe
-        src="https://sketchfab.com/models/ab8a9be416714f14a479ba3c0e8171b0/embed?autostart=1&ui_theme=dark&transparent=1"
-        allow="autoplay; fullscreen; xr-spatial-tracking"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <p style="color:#888; font-size:0.82em; margin-top:8px;">
-      Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Right-click to pan
-    </p>
-    <div class="model-desc">
-      <strong>Motor Housing Assembly</strong> — The propulsion nacelle features a
-      <strong>tool-free magnetic coupling interface</strong> between each nacelle and the motor
-      housing structure, enabling rapid field removal and replacement without disturbing
-      surrounding components. The housing is built on a <strong>modular interlocking
-      architecture</strong> that registers directly into the wing box, allowing each nacelle
-      to be independently extracted, serviced, or reconfigured while maintaining full
-      structural continuity with the primary airframe.
-      <div class="feature-pills">
-        <span class="pill">Magnetic Quick-Disconnect</span>
-        <span class="pill">Tool-Free Field Service</span>
-        <span class="pill">Wing-Box Integration</span>
-        <span class="pill">Modular Nacelle Architecture</span>
-        <span class="pill">Independent Nacelle Removal</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- --- BENCH TESTING --------------------------------------------- -->
 <section id="bench">
   <h2 class="fade-up">Bench Testing</h2>
@@ -1770,14 +2180,20 @@
   </div>
 </section>
 
+
 <!-- --- BUILD LOG -------------------------------------------------- -->
 <section id="progress">
-  <h2 class="fade-up">Project Updates</h2>
+  <h2 class="fade-up">Build Story</h2>
+
+  <p class="fade-up delay-1">
+    A condensed chronology from research and trade studies in January 2026 through a fully
+    integrated, taxi-tested airframe in mid-April 2026.
+  </p>
 
   <div class="update-card fade-up delay-1">
     <div class="date">April 13, 2026</div>
     <h3>Taxi Test</h3>
-    <p>The fully assembled WIG vehicle completed its first taxi test. With all four motors running, the aircraft tracked straight on the ground and responded correctly to control inputs from the RadioMaster Boxer. Control surfaces and motor arming all checked out nominal. The airframe held up without issue under motor thrust loading.</p>
+    <p>The fully assembled WIG vehicle completed its first taxi test. With all four motors running, the aircraft tracked straight on the ground and responded correctly to control inputs from the RadioMaster Boxer transmitter. Control surfaces and motor arming all checked out nominal. The airframe held up without issue under motor thrust loading.</p>
     <div class="photo-grid">
       <img src="photos/TaxiTestBuild.jpeg" alt="WIG vehicle ready for taxi test">
       <img src="photos/Assembly.JPG" alt="Fully assembled WIG vehicle">
@@ -1786,7 +2202,7 @@
 
   <div class="update-card fade-up delay-2">
     <div class="date">April 9, 2026</div>
-    <h3>Full Assembly and Full System Test</h3>
+    <h3>Full Assembly &amp; System Integration Test</h3>
     <p>Full airframe assembly completed. All electronics, wiring, servos, and avionics installed and integrated. Completed a full system test including motor arming, ESC (Electronic Speed Controller) calibration, control surface travel checks, and Pixhawk sensor validation. Flight controller configured in ArduPlane with telemetry link established.</p>
     <div class="photo-grid">
       <img src="photos/Avionics.JPG" alt="Avionics bay wired and integrated">
@@ -1797,14 +2213,14 @@
   <div class="update-card fade-up delay-3">
     <div class="date">Late March 2026</div>
     <h3>Motor Testing &amp; Final Build Push</h3>
-    <p>Motor and propeller bench testing completed at SDSU's low-speed wind tunnel. All wing sections, fuselage, tail, and motor housing nacelles finished printing. Full assembly and wiring underway.</p>
+    <p>Motor and propeller bench testing completed in SDSU's low-speed wind tunnel. All wing sections, fuselage, tail, and motor-housing nacelles finished printing. Full assembly and wiring underway.</p>
   </div>
 
   <div class="update-card fade-up delay-4">
     <div class="date">Early March 2026</div>
-    <h3>Weeks 7–9: Full Build Phase Underway</h3>
-    <p>To cut down on print times and eliminate dependence on shared lab printers, the team purchased a <strong>Bambu Lab P2S</strong>, dramatically reducing turnaround per part. Fuselage sections 1–4 and section 6 printed first; nose cone, section 5, wings, and tail followed. Wiring diagram finalized. Control surfaces designed, nose cone revised, and servo hatches completed.</p>
-    <p>Motors bench tested in SDSU's wind tunnel — measuring thrust output, amp draw, motor and ESC (Electronic Speed Controller) temperature, and checking for voltage sag under load. Pixhawk 6C, 3DR radio telemetry kit, and RadioMaster ELRS receiver all received and installed.</p>
+    <h3>Weeks 7&ndash;9: Full Build Phase Underway</h3>
+    <p>To cut down on print times and eliminate dependence on shared lab printers, the team purchased a <strong>Bambu Lab P2S</strong>, dramatically reducing turnaround per part. Fuselage sections 1&ndash;4 and section 6 printed first; nose cone, section 5, wings, and tail followed. Wiring diagram finalized. Control surfaces designed, nose cone revised, and servo hatches completed.</p>
+    <p>Motors bench-tested in SDSU's wind tunnel &mdash; measuring thrust output, current draw, motor and ESC (Electronic Speed Controller) temperature, and checking for voltage sag under load. Pixhawk&nbsp;6C, 3DR radio telemetry kit, and RadioMaster ELRS (ExpressLRS) receiver all received and installed.</p>
     <div class="photo-grid">
       <img src="photos/FuselageAssembly.jpg" alt="Fuselage being assembled">
     </div>
@@ -1812,9 +2228,9 @@
 
   <div class="update-card fade-up delay-5">
     <div class="date">February 23, 2026</div>
-    <h3>Weeks 5–6: Parts Arrived, Printing Started</h3>
+    <h3>Weeks 5&ndash;6: Parts Arrived, Printing Started</h3>
     <p>Motors, ESCs, batteries, propellers, carbon fiber spars, and all filament arrived.
-       Nose cone, fuselage sections 1–3, and wing section 1 completed on the printer.</p>
+       Nose cone, fuselage sections 1&ndash;3, and wing section 1 completed on the printer.</p>
     <div class="photo-grid">
       <img src="photos/NoseConeRev0.jpg" alt="Nose cone — first structural component off the printer">
     </div>
@@ -1823,47 +2239,201 @@
   <div class="update-card fade-up">
     <div class="date">February 6, 2026</div>
     <h3>Week 4: Design Finalized, Proposal Submitted</h3>
-    <p>Design locked: FX 63-137 airfoil, AR=5.4, 5.4ft wingspan, 4-motor distributed
+    <p>Design locked: FX&nbsp;63-137 airfoil, aspect ratio 5.4, 5.4&nbsp;ft wingspan, 4-motor distributed
        propulsion. Full SolidWorks assembly completed. Proposal submitted and approved.</p>
   </div>
 
   <div class="update-card fade-up delay-1">
     <div class="date">January 2026</div>
-    <h3>Weeks 1–3: Research &amp; Trade Studies</h3>
-    <p>Researched historical WIG vehicles (Caspian Sea Monster, Lun class, Orlyonok).
-       Completed airfoil trade study comparing FX 63-137, NACA 4412, and GAW-1.
-       Selected FX 63-137 for its superior low-speed high-lift characteristics.</p>
+    <h3>Weeks 1&ndash;3: Research &amp; Trade Studies</h3>
+    <p>Researched historical WIG (Wing-In-Ground-Effect) vehicles &mdash; Caspian Sea Monster,
+       Lun class, Orlyonok, AirFish&nbsp;8, REGENT Viceroy seaglider.
+       Completed airfoil trade study comparing FX&nbsp;63-137, NACA&nbsp;4412, and GAW-1.
+       Selected FX&nbsp;63-137 for its superior low-speed high-lift characteristics.</p>
   </div>
 </section>
 
-<!-- --- MEDIA ------------------------------------------------------ -->
-<section id="media">
-  <h2 class="fade-up">Media</h2>
+<!-- --- TIMELINE --------------------------------------------------- -->
+<div class="timeline-section" id="timeline">
+  <div class="inner">
+    <h2 class="fade-up">Project Timeline</h2>
 
-  <p class="media-label fade-up delay-1">3D Print Progress — Wing Component</p>
-  <div class="video-wrap fade-up delay-2">
-    <iframe
-      src="https://www.youtube.com/embed/FamB5fKXKnE"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+    <!-- Desktop timeline -->
+    <div class="timeline-track fade-up delay-1">
+      <div class="timeline-progress-bar" id="timeline-bar"></div>
+
+      <div class="milestone done">
+        <div class="milestone-dot">&#10003;</div>
+        <div class="milestone-info">
+          <div class="milestone-weeks">Wks 1&ndash;4</div>
+          <div class="milestone-title">Research &amp; Design</div>
+          <div class="milestone-status status-done">Complete</div>
+        </div>
+      </div>
+
+      <div class="milestone done">
+        <div class="milestone-dot">&#10003;</div>
+        <div class="milestone-info">
+          <div class="milestone-weeks">Wks 5&ndash;6</div>
+          <div class="milestone-title">Procurement &amp; Printing</div>
+          <div class="milestone-status status-done">Complete</div>
+        </div>
+      </div>
+
+      <div class="milestone done">
+        <div class="milestone-dot">&#10003;</div>
+        <div class="milestone-info">
+          <div class="milestone-weeks">Wks 7&ndash;9</div>
+          <div class="milestone-title">Build &amp; Integration</div>
+          <div class="milestone-status status-done">Complete</div>
+        </div>
+      </div>
+
+      <div class="milestone done">
+        <div class="milestone-dot">&#10003;</div>
+        <div class="milestone-info">
+          <div class="milestone-weeks">Wks 10&ndash;13</div>
+          <div class="milestone-title">Flight Testing</div>
+          <div class="milestone-status status-done">4 sessions</div>
+        </div>
+      </div>
+
+      <div class="milestone done">
+        <div class="milestone-dot">&#10003;</div>
+        <div class="milestone-info">
+          <div class="milestone-weeks">Wk 14</div>
+          <div class="milestone-title">Final Report &amp; Pres.</div>
+          <div class="milestone-status status-done">Submitted</div>
+        </div>
+      </div>
+
+      <div class="milestone done">
+        <div class="milestone-dot">&#9733;</div>
+        <div class="milestone-info">
+          <div class="milestone-weeks">May 6, 2026</div>
+          <div class="milestone-title">Senior Design Day</div>
+          <div class="milestone-status status-done">Showcased</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile timeline -->
+    <div class="timeline-mobile">
+      <div class="m-milestone fade-up">
+        <div class="m-dot-col"><div class="m-dot done">&#10003;</div><div class="m-line done"></div></div>
+        <div class="m-info"><div class="m-weeks">Weeks 1&ndash;4</div><div class="m-title">Research &amp; Design</div><div class="m-desc">Airfoil trade study (FX&nbsp;63-137 selected), wing-loading hand calcs, full SolidWorks assembly, design proposal approved</div></div>
+      </div>
+      <div class="m-milestone fade-up">
+        <div class="m-dot-col"><div class="m-dot done">&#10003;</div><div class="m-line done"></div></div>
+        <div class="m-info"><div class="m-weeks">Weeks 5&ndash;6</div><div class="m-title">Procurement &amp; Printing</div><div class="m-desc">Motors, ESCs, batteries, carbon fiber, and avionics received. Bambu&nbsp;Lab P2S printer purchased; nose cone and fuselage sections printed</div></div>
+      </div>
+      <div class="m-milestone fade-up">
+        <div class="m-dot-col"><div class="m-dot done">&#10003;</div><div class="m-line done"></div></div>
+        <div class="m-info"><div class="m-weeks">Weeks 7&ndash;9</div><div class="m-title">Build &amp; Integration</div><div class="m-desc">Full airframe assembly, ESC/PDB soldering, motor wind-tunnel bench tests, full system integration on Pixhawk&nbsp;6C</div></div>
+      </div>
+      <div class="m-milestone fade-up">
+        <div class="m-dot-col"><div class="m-dot done">&#10003;</div><div class="m-line done"></div></div>
+        <div class="m-info"><div class="m-weeks">Weeks 10&ndash;13</div><div class="m-title">Flight Testing</div><div class="m-desc">Four flight test sessions on the SDSU practice field &mdash; taxi tests, two crashes, two successful ground-effect runs, lift-off at 42.7&nbsp;mph</div></div>
+      </div>
+      <div class="m-milestone fade-up">
+        <div class="m-dot-col"><div class="m-dot done">&#10003;</div><div class="m-line done"></div></div>
+        <div class="m-info"><div class="m-weeks">Week 14</div><div class="m-title">Final Report &amp; Presentation</div><div class="m-desc">Final report and capstone presentation delivered</div></div>
+      </div>
+      <div class="m-milestone fade-up">
+        <div class="m-dot-col"><div class="m-dot done">&#9733;</div></div>
+        <div class="m-info"><div class="m-weeks">May 6, 2026</div><div class="m-title">SDSU Senior Design Day</div><div class="m-desc">Project showcased to industry judges, faculty, and visitors at SDSU's Senior Design Day capstone showcase</div></div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <p class="media-label fade-up">Build Photos</p>
-  <div class="photo-grid fade-up delay-1">
-    <img src="photos/Assembly.JPG" alt="Fully assembled WIG vehicle on grass">
-    <img src="photos/TaxiTestBuild.jpeg" alt="WIG vehicle during taxi test">
-    <img src="photos/Avionics.JPG" alt="Avionics bay — Pixhawk, PDB, and wiring integrated">
-    <img src="photos/FuselageAndCarbon.JPG" alt="3D-printed fuselage section with carbon fiber spar">
-    <img src="photos/FuselageAssembly.jpg" alt="Fuselage assembly in progress">
-    <img src="photos/NoseConeRev0.jpg" alt="Nose cone — first structural component off the printer">
-    <img src="photos/RadioController.jpg" alt="RadioMaster Boxer RC controller">
+<!-- --- BUDGET ----------------------------------------------------- -->
+<section id="budget">
+  <h2 class="fade-up">Project Budget</h2>
+
+  <div class="budget-card fade-up delay-1">
+    <div class="budget-header">
+      <div>
+        <div class="budget-total-label">Total Budget</div>
+        <div class="budget-total-num">$3,125.00</div>
+      </div>
+      <div class="budget-badge">&#10003; Final Spend</div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; font-size:0.8em; color:#888; margin-bottom:6px;">
+      <span>Spent: <strong style="color:#fff;">$2,818.64</strong></span>
+      <span>Remaining: <strong style="color:#4caf50;">$306.36</strong></span>
+    </div>
+    <div class="budget-main-bar-wrap">
+      <div class="budget-main-bar" id="main-budget-bar"></div>
+    </div>
+    <div style="text-align:right; font-size:0.75em; color:#555; margin-bottom:28px;">90% of budget used</div>
+
+    <div class="budget-categories">
+      <div class="budget-cat">
+        <div class="budget-cat-header">
+          <span class="budget-cat-name">Propulsion &amp; Power</span>
+          <span class="budget-cat-amount">$744.39 &nbsp;<span style="color:#555;font-weight:normal;">(23.8%)</span></span>
+        </div>
+        <div class="budget-cat-bar-wrap">
+          <div class="budget-cat-bar bar-propulsion" style="--pct: 23.8%"></div>
+        </div>
+      </div>
+
+      <div class="budget-cat">
+        <div class="budget-cat-header">
+          <span class="budget-cat-name">Manufacturing &amp; Tooling</span>
+          <span class="budget-cat-amount">$671.10 &nbsp;<span style="color:#555;font-weight:normal;">(21.5%)</span></span>
+        </div>
+        <div class="budget-cat-bar-wrap">
+          <div class="budget-cat-bar bar-manufacturing" style="--pct: 21.5%"></div>
+        </div>
+      </div>
+
+      <div class="budget-cat">
+        <div class="budget-cat-header">
+          <span class="budget-cat-name">Airframe &amp; Hardware</span>
+          <span class="budget-cat-amount">$653.86 &nbsp;<span style="color:#555;font-weight:normal;">(20.9%)</span></span>
+        </div>
+        <div class="budget-cat-bar-wrap">
+          <div class="budget-cat-bar bar-airframe" style="--pct: 20.9%"></div>
+        </div>
+      </div>
+
+      <div class="budget-cat">
+        <div class="budget-cat-header">
+          <span class="budget-cat-name">Flight Controller &amp; Navigation</span>
+          <span class="budget-cat-amount">$444.36 &nbsp;<span style="color:#555;font-weight:normal;">(14.2%)</span></span>
+        </div>
+        <div class="budget-cat-bar-wrap">
+          <div class="budget-cat-bar bar-avionics" style="--pct: 14.2%"></div>
+        </div>
+      </div>
+
+      <div class="budget-cat">
+        <div class="budget-cat-header">
+          <span class="budget-cat-name">Control &amp; Actuation</span>
+          <span class="budget-cat-amount">$304.93 &nbsp;<span style="color:#555;font-weight:normal;">(9.8%)</span></span>
+        </div>
+        <div class="budget-cat-bar-wrap">
+          <div class="budget-cat-bar bar-control" style="--pct: 9.8%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="budget-legend">
+      <div>3D Printer (Bambu Lab P2S): <span>$624.39</span></div>
+      <div>Motors &amp; ESCs: <span>$426.42</span></div>
+      <div>Carbon Fiber Spars &amp; Tubes: <span>$329.82</span></div>
+      <div>Flight Controller (Pixhawk 6C): <span>$290.17</span></div>
+      <div>Batteries (2&times; 6S 5200mAh): <span>$122.34</span></div>
+      <div>Servos (5&times;): <span>$84.95</span></div>
+    </div>
   </div>
 </section>
-
 <!-- --- LIGHTBOX -------------------------------------------------- -->
 <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-  <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&#10005;</button>
   <img id="lightbox-img" src="" alt="">
 </div>
 
@@ -1871,7 +2441,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-text">
-      AE 403W &mdash; Wing in Ground Effect Vehicle &nbsp;·&nbsp; SDSU Aerospace Engineering &nbsp;·&nbsp; Spring 2026
+      AE 403W &mdash; Wing in Ground Effect Vehicle &nbsp;&middot;&nbsp; SDSU Aerospace Engineering &nbsp;&middot;&nbsp; Spring 2026
     </div>
     <div class="footer-links">
       <a href="mailto:barrelborne@gmail.com" class="footer-contact">
@@ -1900,21 +2470,21 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // animate once
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  /* -- Budget & Timeline bar animation on scroll ------------------ */
+  /* -- Budget bar animation on scroll ------------------ */
   const barObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Animate budget bars
-        document.getElementById('main-budget-bar').classList.add('animated');
+        const mainBar = document.getElementById('main-budget-bar');
+        if (mainBar) mainBar.classList.add('animated');
         document.querySelectorAll('.budget-cat-bar').forEach(b => b.classList.add('animated'));
-        // Animate timeline progress bar
-        document.getElementById('timeline-bar').classList.add('animated');
+        const tlBar = document.getElementById('timeline-bar');
+        if (tlBar) tlBar.classList.add('animated');
         barObserver.disconnect();
       }
     });
@@ -1928,7 +2498,8 @@
     const printObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          document.getElementById('print-main-bar').classList.add('animated');
+          const pmb = document.getElementById('print-main-bar');
+          if (pmb) pmb.classList.add('animated');
           document.querySelectorAll('.print-cat-bar').forEach(b => b.classList.add('animated'));
           printObserver.disconnect();
         }
@@ -1966,11 +2537,10 @@
     const isOpen = navLinks.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', isOpen);
     navToggle.querySelector('svg').innerHTML = isOpen
-      ? '<line x1="2" y1="2" x2="16" y2="16"/><line x1="16" y1="2" x2="2" y2="16"/>'   // X icon
-      : '<line x1="2" y1="4.5" x2="16" y2="4.5"/><line x1="2" y1="9" x2="16" y2="9"/><line x1="2" y1="13.5" x2="16" y2="13.5"/>'; // ☰ icon
+      ? '<line x1="2" y1="2" x2="16" y2="16"/><line x1="16" y1="2" x2="2" y2="16"/>'
+      : '<line x1="2" y1="4.5" x2="16" y2="4.5"/><line x1="2" y1="9" x2="16" y2="9"/><line x1="2" y1="13.5" x2="16" y2="13.5"/>';
   });
 
-  // Close menu when any nav link is clicked
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       navLinks.classList.remove('open');
@@ -1997,13 +2567,10 @@
     lightboxImg.src = '';
   }
 
-  // Attach click to all photo-grid images
   document.querySelectorAll('.photo-grid img').forEach(img => {
     img.addEventListener('click', () => openLightbox(img.src, img.alt));
   });
 
-  // Close on button, overlay click, or Escape key
-  lightboxClose.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>

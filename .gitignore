@@ -1,0 +1,17 @@
+# Image processing leftover backups (from imagemagick mogrify)
+*.jpg~
+*.JPG~
+*.jpeg~
+*.png~
+*.jpg~~
+*.JPG~~
+*.jpeg~~
+
+# Local working originals folder (keep originals out of repo)
+photos/_originals/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
